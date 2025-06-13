@@ -1,0 +1,1978 @@
+[
+  {
+    "ISO": "AF",
+    "Country": "Afghanistan",
+    "Sovereign": "AF",
+    "Zip Format": "9999",
+    "Zip Name": "Postal code",
+    "Regex": "\\d{4}"
+  },
+  {
+    "ISO": "AX",
+    "Country": "Åland",
+    "Sovereign": "FI",
+    "Zip Format": "99999",
+    "Zip Name": "Postnummer",
+    "Regex": "\\d{5}"
+  },
+  {
+    "ISO": "AL",
+    "Country": "Albania",
+    "Sovereign": "AL",
+    "Zip Format": "9999",
+    "Zip Name": "Kodi Postar",
+    "Regex": "\\d{4}"
+  },
+  {
+    "ISO": "DZ",
+    "Country": "Algeria",
+    "Sovereign": "DZ",
+    "Zip Format": "99999",
+    "Zip Name": "Code postal",
+    "Regex": "\\d{5}"
+  },
+  {
+    "ISO": "AS",
+    "Country": "American Samoa",
+    "Sovereign": "US",
+    "Zip Format": "96799",
+    "Zip Name": "ZIP code",
+    "Regex": "96799"
+  },
+  {
+    "ISO": "AD",
+    "Country": "Andorra",
+    "Sovereign": "AD",
+    "Zip Format": "AD999",
+    "Zip Name": "Postal code",
+    "Regex": "AD\\d{3}"
+  },
+  {
+    "ISO": "AO",
+    "Country": "Angola",
+    "Sovereign": "AO",
+    "Zip Format": "",
+    "Zip Name": "",
+    "Regex": ""
+  },
+  {
+    "ISO": "AI",
+    "Country": "Anguilla",
+    "Sovereign": "GB",
+    "Zip Format": "AI-2640",
+    "Zip Name": "Postcode",
+    "Regex": "AI\\-\\d{4}"
+  },
+  {
+    "ISO": "AG",
+    "Country": "Antigua and Barbuda",
+    "Sovereign": "AG",
+    "Zip Format": "",
+    "Zip Name": "",
+    "Regex": ""
+  },
+  {
+    "ISO": "AR",
+    "Country": "Argentina",
+    "Sovereign": "AR",
+    "Zip Format": "A9999 AAA",
+    "Zip Name": "CPA",
+    "Regex": "[A-Z]\\d{4}\\s[A-Z]{3}"
+  },
+  {
+    "ISO": "AM",
+    "Country": "Armenia",
+    "Sovereign": "AM",
+    "Zip Format": "9999",
+    "Zip Name": "Փոստային ինդեքս",
+    "Regex": "\\d{4}"
+  },
+  {
+    "ISO": "AW",
+    "Country": "Aruba",
+    "Sovereign": "NL",
+    "Zip Format": "",
+    "Zip Name": "",
+    "Regex": ""
+  },
+  {
+    "ISO": "AU",
+    "Country": "Australia",
+    "Sovereign": "AU",
+    "Zip Format": "9999",
+    "Zip Name": "Postcode",
+    "Regex": "\\d{4}"
+  },
+  {
+    "ISO": "AT",
+    "Country": "Austria",
+    "Sovereign": "AT",
+    "Zip Format": "9999",
+    "Zip Name": "PLZ",
+    "Regex": "\\d{4}"
+  },
+  {
+    "ISO": "AZ",
+    "Country": "Azerbaijan",
+    "Sovereign": "AZ",
+    "Zip Format": "AZ 9999",
+    "Zip Name": "Poçt indeksi",
+    "Regex": "AZ\\s\\d{4}"
+  },
+  {
+    "ISO": "BS",
+    "Country": "Bahamas",
+    "Sovereign": "BS",
+    "Zip Format": "",
+    "Zip Name": "",
+    "Regex": ""
+  },
+  {
+    "ISO": "BH",
+    "Country": "Bahrain",
+    "Sovereign": "BH",
+    "Zip Format": "[9]999",
+    "Zip Name": "Block",
+    "Regex": "\\d{3,4}"
+  },
+  {
+    "ISO": "BD",
+    "Country": "Bangladesh",
+    "Sovereign": "BD",
+    "Zip Format": "9999",
+    "Zip Name": "Postal code",
+    "Regex": "\\d{4}"
+  },
+  {
+    "ISO": "BB",
+    "Country": "Barbados",
+    "Sovereign": "BB",
+    "Zip Format": "99999",
+    "Zip Name": "Postal code",
+    "Regex": "\\d{5}"
+  },
+  {
+    "ISO": "BY",
+    "Country": "Belarus",
+    "Sovereign": "BY",
+    "Zip Format": "299999",
+    "Zip Name": "Паштовы індэкс",
+    "Regex": "2\\d{5}"
+  },
+  {
+    "ISO": "BE",
+    "Country": "Belgium",
+    "Sovereign": "BE",
+    "Zip Format": "9999",
+    "Zip Name": "Code postal",
+    "Regex": "\\d{4}"
+  },
+  {
+    "ISO": "BZ",
+    "Country": "Belize",
+    "Sovereign": "BZ",
+    "Zip Format": "",
+    "Zip Name": "",
+    "Regex": ""
+  },
+  {
+    "ISO": "BJ",
+    "Country": "Benin",
+    "Sovereign": "BJ",
+    "Zip Format": "",
+    "Zip Name": "",
+    "Regex": ""
+  },
+  {
+    "ISO": "BM",
+    "Country": "Bermuda",
+    "Sovereign": "GB",
+    "Zip Format": "AA 99",
+    "Zip Name": "Postcode",
+    "Regex": "[A-Z]{2}\\s[\\dA-Z]{2}"
+  },
+  {
+    "ISO": "BT",
+    "Country": "Bhutan",
+    "Sovereign": "BT",
+    "Zip Format": "99999",
+    "Zip Name": "Postcode",
+    "Regex": "\\d{5}"
+  },
+  {
+    "ISO": "BO",
+    "Country": "Bolivia",
+    "Sovereign": "BO",
+    "Zip Format": "",
+    "Zip Name": "",
+    "Regex": ""
+  },
+  {
+    "ISO": "BA",
+    "Country": "Bosnia and Herzegovina",
+    "Sovereign": "BA",
+    "Zip Format": "99999",
+    "Zip Name": "Poštanski broj",
+    "Regex": "\\d{5}"
+  },
+  {
+    "ISO": "BW",
+    "Country": "Botswana",
+    "Sovereign": "BW",
+    "Zip Format": "",
+    "Zip Name": "",
+    "Regex": ""
+  },
+  {
+    "ISO": "BV",
+    "Country": "Bouvet Island",
+    "Sovereign": "NO",
+    "Zip Format": "",
+    "Zip Name": "Postnummer",
+    "Regex": ""
+  },
+  {
+    "ISO": "BR",
+    "Country": "Brazil",
+    "Sovereign": "BR",
+    "Zip Format": "99999-999",
+    "Zip Name": "CEP",
+    "Regex": "\\d{5}\\-\\d{3}"
+  },
+  {
+    "ISO": "IO",
+    "Country": "British Indian Ocean Territory",
+    "Sovereign": "GB",
+    "Zip Format": "BBND 1ZZ",
+    "Zip Name": "Postcode",
+    "Regex": "BBND 1ZZ"
+  },
+  {
+    "ISO": "VG",
+    "Country": "British Virgin Islands",
+    "Sovereign": "GB",
+    "Zip Format": "VG9999",
+    "Zip Name": "Postcode",
+    "Regex": "VG\\d{4}"
+  },
+  {
+    "ISO": "BN",
+    "Country": "Brunei Darussalam",
+    "Sovereign": "BN",
+    "Zip Format": "AA9999",
+    "Zip Name": "Postal code",
+    "Regex": "[A-Z]{2}\\d{4}"
+  },
+  {
+    "ISO": "BG",
+    "Country": "Bulgaria",
+    "Sovereign": "BG",
+    "Zip Format": "9999",
+    "Zip Name": "Пощенски код",
+    "Regex": "\\d{4}"
+  },
+  {
+    "ISO": "BF",
+    "Country": "Burkina Faso",
+    "Sovereign": "BF",
+    "Zip Format": "99999",
+    "Zip Name": "",
+    "Regex": "\\d{5}"
+  },
+  {
+    "ISO": "BI",
+    "Country": "Burundi",
+    "Sovereign": "BI",
+    "Zip Format": "",
+    "Zip Name": "",
+    "Regex": ""
+  },
+  {
+    "ISO": "KH",
+    "Country": "Cambodia",
+    "Sovereign": "KH",
+    "Zip Format": "999999",
+    "Zip Name": "Postal code",
+    "Regex": "\\d{6}"
+  },
+  {
+    "ISO": "CM",
+    "Country": "Cameroon",
+    "Sovereign": "CM",
+    "Zip Format": "",
+    "Zip Name": "",
+    "Regex": ""
+  },
+  {
+    "ISO": "CA",
+    "Country": "Canada",
+    "Sovereign": "CA",
+    "Zip Format": "A9A 9A9",
+    "Zip Name": "Postal code",
+    "Regex": "[A-Z]\\d[A-Z]\\s\\d[A-Z]\\d"
+  },
+  {
+    "ISO": "CV",
+    "Country": "Cape Verde",
+    "Sovereign": "CV",
+    "Zip Format": "9999-999",
+    "Zip Name": "Postal code",
+    "Regex": "\\d{4}-\\d{3}"
+  },
+  {
+    "ISO": "KY",
+    "Country": "Cayman Islands",
+    "Sovereign": "GB",
+    "Zip Format": "KY9-9999",
+    "Zip Name": "Postcode",
+    "Regex": "KY\\d\\-\\d{4}"
+  },
+  {
+    "ISO": "CF",
+    "Country": "Central African Republic",
+    "Sovereign": "CF",
+    "Zip Format": "",
+    "Zip Name": "",
+    "Regex": ""
+  },
+  {
+    "ISO": "TD",
+    "Country": "Chad",
+    "Sovereign": "TD",
+    "Zip Format": "",
+    "Zip Name": "",
+    "Regex": ""
+  },
+  {
+    "ISO": "CL",
+    "Country": "Chile",
+    "Sovereign": "CL",
+    "Zip Format": "9999999",
+    "Zip Name": "Código postal",
+    "Regex": "\\d{7}"
+  },
+  {
+    "ISO": "CN",
+    "Country": "China",
+    "Sovereign": "CN",
+    "Zip Format": "999999",
+    "Zip Name": "邮政编码",
+    "Regex": "\\d{6}"
+  },
+  {
+    "ISO": "CX",
+    "Country": "Christmas Island",
+    "Sovereign": "AU",
+    "Zip Format": "6798",
+    "Zip Name": "Postcode",
+    "Regex": "6798"
+  },
+  {
+    "ISO": "CC",
+    "Country": "Cocos (Keeling) Islands",
+    "Sovereign": "AU",
+    "Zip Format": "6799",
+    "Zip Name": "Postcode",
+    "Regex": "6799"
+  },
+  {
+    "ISO": "CO",
+    "Country": "Colombia",
+    "Sovereign": "CO",
+    "Zip Format": "999999",
+    "Zip Name": "Código postal",
+    "Regex": "\\d{6}"
+  },
+  {
+    "ISO": "KM",
+    "Country": "Comoros",
+    "Sovereign": "KM",
+    "Zip Format": "",
+    "Zip Name": "",
+    "Regex": ""
+  },
+  {
+    "ISO": "CG",
+    "Country": "Congo-Brazzaville",
+    "Sovereign": "CG",
+    "Zip Format": "",
+    "Zip Name": "",
+    "Regex": ""
+  },
+  {
+    "ISO": "CD",
+    "Country": "Congo, Democratic Republic",
+    "Sovereign": "CD",
+    "Zip Format": "9999999",
+    "Zip Name": "Code postal",
+    "Regex": "\\d{7}"
+  },
+  {
+    "ISO": "CK",
+    "Country": "Cook Islands",
+    "Sovereign": "NZ",
+    "Zip Format": "",
+    "Zip Name": "",
+    "Regex": ""
+  },
+  {
+    "ISO": "CR",
+    "Country": "Costa Rica",
+    "Sovereign": "CR",
+    "Zip Format": "99999",
+    "Zip Name": "Código postal",
+    "Regex": "\\d{5}"
+  },
+  {
+    "ISO": "CI",
+    "Country": "Côte d'Ivoire",
+    "Sovereign": "CI",
+    "Zip Format": "",
+    "Zip Name": "",
+    "Regex": ""
+  },
+  {
+    "ISO": "HR",
+    "Country": "Croatia",
+    "Sovereign": "HR",
+    "Zip Format": "99999",
+    "Zip Name": "Postal code",
+    "Regex": "\\d{5}"
+  },
+  {
+    "ISO": "CU",
+    "Country": "Cuba",
+    "Sovereign": "CU",
+    "Zip Format": "99999",
+    "Zip Name": "Código postal",
+    "Regex": "\\d{5}"
+  },
+  {
+    "ISO": "CW",
+    "Country": "Curaçao",
+    "Sovereign": "NL",
+    "Zip Format": "",
+    "Zip Name": "",
+    "Regex": ""
+  },
+  {
+    "ISO": "CY",
+    "Country": "Cyprus",
+    "Sovereign": "CY",
+    "Zip Format": "9999",
+    "Zip Name": "Postal code",
+    "Regex": "\\d{4}"
+  },
+  {
+    "ISO": "CZ",
+    "Country": "Czechia",
+    "Sovereign": "CZ",
+    "Zip Format": "999 99",
+    "Zip Name": "PSČ",
+    "Regex": "\\d{3}\\s\\d{2}"
+  },
+  {
+    "ISO": "DK",
+    "Country": "Denmark",
+    "Sovereign": "DK",
+    "Zip Format": "9999",
+    "Zip Name": "Postnummer",
+    "Regex": "\\d{4}"
+  },
+  {
+    "ISO": "DJ",
+    "Country": "Djibouti",
+    "Sovereign": "DJ",
+    "Zip Format": "",
+    "Zip Name": "",
+    "Regex": ""
+  },
+  {
+    "ISO": "DM",
+    "Country": "Dominica",
+    "Sovereign": "DM",
+    "Zip Format": "",
+    "Zip Name": "",
+    "Regex": ""
+  },
+  {
+    "ISO": "DO",
+    "Country": "Dominican Republic",
+    "Sovereign": "DO",
+    "Zip Format": "99999",
+    "Zip Name": "Código postal",
+    "Regex": "\\d{5}"
+  },
+  {
+    "ISO": "EC",
+    "Country": "Ecuador",
+    "Sovereign": "EC",
+    "Zip Format": "999999",
+    "Zip Name": "Código postal",
+    "Regex": "\\d{6}"
+  },
+  {
+    "ISO": "EG",
+    "Country": "Egypt",
+    "Sovereign": "EG",
+    "Zip Format": "99999",
+    "Zip Name": "الرمز البريدى",
+    "Regex": "\\d{5}"
+  },
+  {
+    "ISO": "SV",
+    "Country": "El Salvador",
+    "Sovereign": "SV",
+    "Zip Format": "99999",
+    "Zip Name": "Código postal",
+    "Regex": "\\d{5}"
+  },
+  {
+    "ISO": "GQ",
+    "Country": "Equatorial Guinea",
+    "Sovereign": "GQ",
+    "Zip Format": "",
+    "Zip Name": "",
+    "Regex": ""
+  },
+  {
+    "ISO": "ER",
+    "Country": "Eritrea",
+    "Sovereign": "ER",
+    "Zip Format": "",
+    "Zip Name": "",
+    "Regex": ""
+  },
+  {
+    "ISO": "EE",
+    "Country": "Estonia",
+    "Sovereign": "EE",
+    "Zip Format": "99999",
+    "Zip Name": "Postiindeks",
+    "Regex": "\\d{5}"
+  },
+  {
+    "ISO": "SZ",
+    "Country": "Eswatini",
+    "Sovereign": "SZ",
+    "Zip Format": "A999",
+    "Zip Name": "Postal code",
+    "Regex": "[A-Z]\\d{3}"
+  },
+  {
+    "ISO": "ET",
+    "Country": "Ethiopia",
+    "Sovereign": "ET",
+    "Zip Format": "",
+    "Zip Name": "",
+    "Regex": ""
+  },
+  {
+    "ISO": "FK",
+    "Country": "Falkland Islands",
+    "Sovereign": "GB",
+    "Zip Format": "FIQQ 1ZZ",
+    "Zip Name": "Postcode",
+    "Regex": "FIQQ 1ZZ"
+  },
+  {
+    "ISO": "FO",
+    "Country": "Faroe Islands",
+    "Sovereign": "DK",
+    "Zip Format": "999",
+    "Zip Name": "Postnummer",
+    "Regex": "\\d{3}"
+  },
+  {
+    "ISO": "FJ",
+    "Country": "Fiji",
+    "Sovereign": "FJ",
+    "Zip Format": "",
+    "Zip Name": "",
+    "Regex": ""
+  },
+  {
+    "ISO": "FI",
+    "Country": "Finland",
+    "Sovereign": "FI",
+    "Zip Format": "99999",
+    "Zip Name": "Postinumero",
+    "Regex": "\\d{5}"
+  },
+  {
+    "ISO": "FR",
+    "Country": "France",
+    "Sovereign": "FR",
+    "Zip Format": "99999",
+    "Zip Name": "Code postal",
+    "Regex": "\\d{5}"
+  },
+  {
+    "ISO": "GF",
+    "Country": "French Guiana",
+    "Sovereign": "FR",
+    "Zip Format": "99999",
+    "Zip Name": "Code postal",
+    "Regex": "\\d{5}"
+  },
+  {
+    "ISO": "PF",
+    "Country": "French Polynesia",
+    "Sovereign": "FR",
+    "Zip Format": "99999",
+    "Zip Name": "Code postal",
+    "Regex": "\\d{5}"
+  },
+  {
+    "ISO": "TF",
+    "Country": "French Southern Territories",
+    "Sovereign": "FR",
+    "Zip Format": "",
+    "Zip Name": "",
+    "Regex": ""
+  },
+  {
+    "ISO": "GA",
+    "Country": "Gabon",
+    "Sovereign": "GA",
+    "Zip Format": "",
+    "Zip Name": "",
+    "Regex": ""
+  },
+  {
+    "ISO": "GM",
+    "Country": "Gambia",
+    "Sovereign": "GM",
+    "Zip Format": "",
+    "Zip Name": "",
+    "Regex": ""
+  },
+  {
+    "ISO": "GE",
+    "Country": "Georgia",
+    "Sovereign": "GE",
+    "Zip Format": "9999",
+    "Zip Name": "საფოსტო ინდექსის",
+    "Regex": "\\d{4}"
+  },
+  {
+    "ISO": "DE",
+    "Country": "Germany",
+    "Sovereign": "DE",
+    "Zip Format": "99999",
+    "Zip Name": "PLZ",
+    "Regex": "\\d{5}"
+  },
+  {
+    "ISO": "GH",
+    "Country": "Ghana",
+    "Sovereign": "GH",
+    "Zip Format": "AA-99999-9999",
+    "Zip Name": "Postcode",
+    "Regex": "[A-Z][A-Z0-9]\\-\\d{5}\\-\\d{4}"
+  },
+  {
+    "ISO": "GI",
+    "Country": "Gibraltar",
+    "Sovereign": "GB",
+    "Zip Format": "GX11 1AA",
+    "Zip Name": "Postcode",
+    "Regex": "GX11 1AA"
+  },
+  {
+    "ISO": "GR",
+    "Country": "Greece",
+    "Sovereign": "GR",
+    "Zip Format": "999 99",
+    "Zip Name": "ΤΚ",
+    "Regex": "\\d{3}\\s\\d{2}"
+  },
+  {
+    "ISO": "GL",
+    "Country": "Greenland",
+    "Sovereign": "DK",
+    "Zip Format": "9999",
+    "Zip Name": "Postnummer",
+    "Regex": "\\d{4}"
+  },
+  {
+    "ISO": "GD",
+    "Country": "Grenada",
+    "Sovereign": "GD",
+    "Zip Format": "",
+    "Zip Name": "",
+    "Regex": ""
+  },
+  {
+    "ISO": "GP",
+    "Country": "Guadeloupe",
+    "Sovereign": "FR",
+    "Zip Format": "99999",
+    "Zip Name": "Code postal",
+    "Regex": "\\d{5}"
+  },
+  {
+    "ISO": "GU",
+    "Country": "Guam",
+    "Sovereign": "US",
+    "Zip Format": "99999",
+    "Zip Name": "ZIP code",
+    "Regex": "\\d{5}"
+  },
+  {
+    "ISO": "GT",
+    "Country": "Guatemala",
+    "Sovereign": "GT",
+    "Zip Format": "99999",
+    "Zip Name": "Código postal",
+    "Regex": "\\d{5}"
+  },
+  {
+    "ISO": "GG",
+    "Country": "Guernsey",
+    "Sovereign": "GB",
+    "Zip Format": "GY99 9AA",
+    "Zip Name": "Postcode",
+    "Regex": "GY\\d{1,2}\\s\\d[A-Z]{2}"
+  },
+  {
+    "ISO": "GN",
+    "Country": "Guinea",
+    "Sovereign": "GN",
+    "Zip Format": "",
+    "Zip Name": "",
+    "Regex": ""
+  },
+  {
+    "ISO": "GW",
+    "Country": "Guinea-Bissau",
+    "Sovereign": "GW",
+    "Zip Format": "",
+    "Zip Name": "",
+    "Regex": ""
+  },
+  {
+    "ISO": "GY",
+    "Country": "Guyana",
+    "Sovereign": "GY",
+    "Zip Format": "",
+    "Zip Name": "",
+    "Regex": ""
+  },
+  {
+    "ISO": "HT",
+    "Country": "Haiti",
+    "Sovereign": "HT",
+    "Zip Format": "9999",
+    "Zip Name": "Code postal",
+    "Regex": "\\d{4}"
+  },
+  {
+    "ISO": "HM",
+    "Country": "Heard and McDonald Islands",
+    "Sovereign": "AU",
+    "Zip Format": "7151",
+    "Zip Name": "Postcode",
+    "Regex": "7151"
+  },
+  {
+    "ISO": "HN",
+    "Country": "Honduras",
+    "Sovereign": "HN",
+    "Zip Format": "",
+    "Zip Name": "",
+    "Regex": ""
+  },
+  {
+    "ISO": "HK",
+    "Country": "Hong Kong",
+    "Sovereign": "CN",
+    "Zip Format": "",
+    "Zip Name": "",
+    "Regex": ""
+  },
+  {
+    "ISO": "HU",
+    "Country": "Hungary",
+    "Sovereign": "HU",
+    "Zip Format": "9999",
+    "Zip Name": "Irányítószám",
+    "Regex": "\\d{4}"
+  },
+  {
+    "ISO": "IS",
+    "Country": "Iceland",
+    "Sovereign": "IS",
+    "Zip Format": "999",
+    "Zip Name": "Póstnúmer",
+    "Regex": "\\d{3}"
+  },
+  {
+    "ISO": "IN",
+    "Country": "India",
+    "Sovereign": "IN",
+    "Zip Format": "999999",
+    "Zip Name": "PIN code",
+    "Regex": "\\d{6}"
+  },
+  {
+    "ISO": "ID",
+    "Country": "Indonesia",
+    "Sovereign": "ID",
+    "Zip Format": "99999",
+    "Zip Name": "Kodhe pos",
+    "Regex": "\\d{5}"
+  },
+  {
+    "ISO": "IR",
+    "Country": "Iran",
+    "Sovereign": "IR",
+    "Zip Format": "9999999999",
+    "Zip Name": "Postal code",
+    "Regex": "\\d{10}"
+  },
+  {
+    "ISO": "IQ",
+    "Country": "Iraq",
+    "Sovereign": "IQ",
+    "Zip Format": "99999",
+    "Zip Name": "Postal code",
+    "Regex": "\\d{5}"
+  },
+  {
+    "ISO": "IE",
+    "Country": "Ireland",
+    "Sovereign": "IE",
+    "Zip Format": "A99 AAAA",
+    "Zip Name": "Eircode",
+    "Regex": "[A-Z](\\d{2}|6W)\\s[A-Z]{4}"
+  },
+  {
+    "ISO": "IM",
+    "Country": "Isle of Man",
+    "Sovereign": "GB",
+    "Zip Format": "IM99 9AA",
+    "Zip Name": "Postcode",
+    "Regex": "IM\\d{1,2}\\s\\d[A-Z]{2}"
+  },
+  {
+    "ISO": "IL",
+    "Country": "Israel",
+    "Sovereign": "IL",
+    "Zip Format": "99999 99",
+    "Zip Name": "Postal code",
+    "Regex": "\\d{5}\\s\\d{2}"
+  },
+  {
+    "ISO": "IT",
+    "Country": "Italy",
+    "Sovereign": "IT",
+    "Zip Format": "99999",
+    "Zip Name": "CAP",
+    "Regex": "\\d{5}"
+  },
+  {
+    "ISO": "JM",
+    "Country": "Jamaica",
+    "Sovereign": "JM",
+    "Zip Format": "",
+    "Zip Name": "Postal code",
+    "Regex": ""
+  },
+  {
+    "ISO": "JP",
+    "Country": "Japan",
+    "Sovereign": "JP",
+    "Zip Format": "999-9999",
+    "Zip Name": "郵便番号",
+    "Regex": "\\d{3}\\-\\d{4}"
+  },
+  {
+    "ISO": "JE",
+    "Country": "Jersey",
+    "Sovereign": "GB",
+    "Zip Format": "JE9 9AA",
+    "Zip Name": "Postcode",
+    "Regex": "JE\\d\\s\\d[A-Z]{2}"
+  },
+  {
+    "ISO": "JO",
+    "Country": "Jordan",
+    "Sovereign": "JO",
+    "Zip Format": "99999",
+    "Zip Name": "Postal code",
+    "Regex": "\\d{5}"
+  },
+  {
+    "ISO": "KZ",
+    "Country": "Kazakhstan",
+    "Sovereign": "KZ",
+    "Zip Format": "A99A9A9",
+    "Zip Name": "Пошта индексі",
+    "Regex": "[A-Z]\\d{2}[A-Z]\\d[A-Z]\\d"
+  },
+  {
+    "ISO": "KE",
+    "Country": "Kenya",
+    "Sovereign": "KE",
+    "Zip Format": "99999",
+    "Zip Name": "Postal code",
+    "Regex": "\\d{5}"
+  },
+  {
+    "ISO": "KI",
+    "Country": "Kiribati",
+    "Sovereign": "KI",
+    "Zip Format": "KI0999",
+    "Zip Name": "Postcode",
+    "Regex": "KI0\\d{3}"
+  },
+  {
+    "ISO": "XK",
+    "Country": "Kosovo",
+    "Sovereign": "XK",
+    "Zip Format": "99999",
+    "Zip Name": "Zip codes",
+    "Regex": ""
+  },
+  {
+    "ISO": "KW",
+    "Country": "Kuwait",
+    "Sovereign": "KW",
+    "Zip Format": "99999",
+    "Zip Name": "Postal code",
+    "Regex": "\\d{5}"
+  },
+  {
+    "ISO": "KG",
+    "Country": "Kyrgyzstan",
+    "Sovereign": "KG",
+    "Zip Format": "999999",
+    "Zip Name": "Postal code",
+    "Regex": "\\d{6}"
+  },
+  {
+    "ISO": "LA",
+    "Country": "Laos",
+    "Sovereign": "LA",
+    "Zip Format": "99999",
+    "Zip Name": "Postal code",
+    "Regex": "\\d{5}"
+  },
+  {
+    "ISO": "LV",
+    "Country": "Latvia",
+    "Sovereign": "LV",
+    "Zip Format": "9999",
+    "Zip Name": "Pasta indekss",
+    "Regex": "\\d{4}"
+  },
+  {
+    "ISO": "LB",
+    "Country": "Lebanon",
+    "Sovereign": "LB",
+    "Zip Format": "9999 9999",
+    "Zip Name": "Postal code",
+    "Regex": "\\d{4}\\s\\d{4}"
+  },
+  {
+    "ISO": "LS",
+    "Country": "Lesotho",
+    "Sovereign": "LS",
+    "Zip Format": "999",
+    "Zip Name": "Postal code",
+    "Regex": "\\d{3}"
+  },
+  {
+    "ISO": "LR",
+    "Country": "Liberia",
+    "Sovereign": "LR",
+    "Zip Format": "9999",
+    "Zip Name": "Postal code",
+    "Regex": "\\d{4}"
+  },
+  {
+    "ISO": "LY",
+    "Country": "Libya",
+    "Sovereign": "LY",
+    "Zip Format": "99999",
+    "Zip Name": "Postal code",
+    "Regex": "\\d{5}"
+  },
+  {
+    "ISO": "LI",
+    "Country": "Liechtenstein",
+    "Sovereign": "LI",
+    "Zip Format": "9999",
+    "Zip Name": "PLZ",
+    "Regex": "\\d{4}"
+  },
+  {
+    "ISO": "LT",
+    "Country": "Lithuania",
+    "Sovereign": "LT",
+    "Zip Format": "99999",
+    "Zip Name": "Pašto kodas",
+    "Regex": "\\d{5}"
+  },
+  {
+    "ISO": "LU",
+    "Country": "Luxembourg",
+    "Sovereign": "LU",
+    "Zip Format": "9999",
+    "Zip Name": "Code postal",
+    "Regex": "\\d{4}"
+  },
+  {
+    "ISO": "MO",
+    "Country": "Macau",
+    "Sovereign": "CN",
+    "Zip Format": "",
+    "Zip Name": "",
+    "Regex": ""
+  },
+  {
+    "ISO": "MG",
+    "Country": "Madagascar",
+    "Sovereign": "MG",
+    "Zip Format": "999",
+    "Zip Name": "Code postal",
+    "Regex": "\\d{3}"
+  },
+  {
+    "ISO": "MW",
+    "Country": "Malawi",
+    "Sovereign": "MW",
+    "Zip Format": "999999",
+    "Zip Name": "Postcode",
+    "Regex": "\\d{6}"
+  },
+  {
+    "ISO": "MY",
+    "Country": "Malaysia",
+    "Sovereign": "MY",
+    "Zip Format": "99999",
+    "Zip Name": "Postal code",
+    "Regex": "\\d{5}"
+  },
+  {
+    "ISO": "MV",
+    "Country": "Maldives",
+    "Sovereign": "MV",
+    "Zip Format": "99999",
+    "Zip Name": "Postcode",
+    "Regex": "\\d{5}"
+  },
+  {
+    "ISO": "ML",
+    "Country": "Mali",
+    "Sovereign": "ML",
+    "Zip Format": "99999",
+    "Zip Name": "Code postal",
+    "Regex": "\\d{5}"
+  },
+  {
+    "ISO": "MT",
+    "Country": "Malta",
+    "Sovereign": "MT",
+    "Zip Format": "AAA 9999",
+    "Zip Name": "Postal code",
+    "Regex": "[A-Z]{2,3}\\s\\d{2,4}"
+  },
+  {
+    "ISO": "MH",
+    "Country": "Marshall Islands",
+    "Sovereign": "US",
+    "Zip Format": "99999",
+    "Zip Name": "ZIP code",
+    "Regex": "\\d{5}"
+  },
+  {
+    "ISO": "MQ",
+    "Country": "Martinique",
+    "Sovereign": "FR",
+    "Zip Format": "99999",
+    "Zip Name": "Code postal",
+    "Regex": "\\d{5}"
+  },
+  {
+    "ISO": "MR",
+    "Country": "Mauritania",
+    "Sovereign": "MR",
+    "Zip Format": "",
+    "Zip Name": "",
+    "Regex": ""
+  },
+  {
+    "ISO": "MU",
+    "Country": "Mauritius",
+    "Sovereign": "MU",
+    "Zip Format": "99999",
+    "Zip Name": "Post code",
+    "Regex": "[\\dR]\\d{3,4}"
+  },
+  {
+    "ISO": "YT",
+    "Country": "Mayotte",
+    "Sovereign": "FR",
+    "Zip Format": "99999",
+    "Zip Name": "Code postal",
+    "Regex": "\\d{5}"
+  },
+  {
+    "ISO": "MX",
+    "Country": "Mexico",
+    "Sovereign": "MX",
+    "Zip Format": "99999",
+    "Zip Name": "Código postal",
+    "Regex": "\\d{5}"
+  },
+  {
+    "ISO": "FM",
+    "Country": "Micronesia",
+    "Sovereign": "US",
+    "Zip Format": "99999",
+    "Zip Name": "ZIP code",
+    "Regex": "\\d{5}"
+  },
+  {
+    "ISO": "UM",
+    "Country": "Minor Outlying Islands",
+    "Sovereign": "US",
+    "Zip Format": "96898",
+    "Zip Name": "ZIP Code",
+    "Regex": "\\d{5}"
+  },
+  {
+    "ISO": "MD",
+    "Country": "Moldova",
+    "Sovereign": "MD",
+    "Zip Format": "9999",
+    "Zip Name": "Coduri poștale",
+    "Regex": "\\d{4}"
+  },
+  {
+    "ISO": "MC",
+    "Country": "Monaco",
+    "Sovereign": "MC",
+    "Zip Format": "98000",
+    "Zip Name": "Code postal",
+    "Regex": "9800\\d"
+  },
+  {
+    "ISO": "MN",
+    "Country": "Mongolia",
+    "Sovereign": "MN",
+    "Zip Format": "99999",
+    "Zip Name": "Postal code",
+    "Regex": "\\d{5}"
+  },
+  {
+    "ISO": "ME",
+    "Country": "Montenegro",
+    "Sovereign": "ME",
+    "Zip Format": "99999",
+    "Zip Name": "Postal code",
+    "Regex": "\\d{5}"
+  },
+  {
+    "ISO": "MS",
+    "Country": "Montserrat",
+    "Sovereign": "GB",
+    "Zip Format": "MSR9999",
+    "Zip Name": "Postcode",
+    "Regex": "MSR\\d{4}"
+  },
+  {
+    "ISO": "MA",
+    "Country": "Morocco",
+    "Sovereign": "MA",
+    "Zip Format": "99999",
+    "Zip Name": "Code postal",
+    "Regex": "\\d{5}"
+  },
+  {
+    "ISO": "MZ",
+    "Country": "Mozambique",
+    "Sovereign": "MZ",
+    "Zip Format": "9999",
+    "Zip Name": "Postal code",
+    "Regex": "\\d{4}"
+  },
+  {
+    "ISO": "MM",
+    "Country": "Myanmar",
+    "Sovereign": "MM",
+    "Zip Format": "9999999",
+    "Zip Name": "Postal code",
+    "Regex": "\\d{7}"
+  },
+  {
+    "ISO": "NA",
+    "Country": "Namibia",
+    "Sovereign": "NA",
+    "Zip Format": "99999",
+    "Zip Name": "Post Code",
+    "Regex": "\\d{5}"
+  },
+  {
+    "ISO": "NR",
+    "Country": "Nauru",
+    "Sovereign": "NR",
+    "Zip Format": "NRU 68",
+    "Zip Name": "Postcode",
+    "Regex": "NRU 68"
+  },
+  {
+    "ISO": "NP",
+    "Country": "Nepal",
+    "Sovereign": "NP",
+    "Zip Format": "99999",
+    "Zip Name": "Postal code",
+    "Regex": "\\d{5}"
+  },
+  {
+    "ISO": "NL",
+    "Country": "Netherlands",
+    "Sovereign": "NL",
+    "Zip Format": "9999 AA",
+    "Zip Name": "Postcode",
+    "Regex": "\\d{4}\\s[A-Z]{2}"
+  },
+  {
+    "ISO": "NC",
+    "Country": "New Caledonia",
+    "Sovereign": "FR",
+    "Zip Format": "99999",
+    "Zip Name": "Code postal",
+    "Regex": "\\d{5}"
+  },
+  {
+    "ISO": "NZ",
+    "Country": "New Zealand",
+    "Sovereign": "NZ",
+    "Zip Format": "9999",
+    "Zip Name": "Postal code",
+    "Regex": "\\d{4}"
+  },
+  {
+    "ISO": "NI",
+    "Country": "Nicaragua",
+    "Sovereign": "NI",
+    "Zip Format": "99999",
+    "Zip Name": "Código postal",
+    "Regex": "\\d{5}"
+  },
+  {
+    "ISO": "NE",
+    "Country": "Niger",
+    "Sovereign": "NE",
+    "Zip Format": "9999",
+    "Zip Name": "Code postal",
+    "Regex": "\\d{4}"
+  },
+  {
+    "ISO": "NG",
+    "Country": "Nigeria",
+    "Sovereign": "NG",
+    "Zip Format": "999999",
+    "Zip Name": "Postal code",
+    "Regex": "\\d{6}"
+  },
+  {
+    "ISO": "NU",
+    "Country": "Niue",
+    "Sovereign": "NZ",
+    "Zip Format": "9974",
+    "Zip Name": "Postal code",
+    "Regex": "9974"
+  },
+  {
+    "ISO": "NF",
+    "Country": "Norfolk Island",
+    "Sovereign": "AU",
+    "Zip Format": "2899",
+    "Zip Name": "Postcode",
+    "Regex": "28\\d{2}"
+  },
+  {
+    "ISO": "KP",
+    "Country": "North Korea",
+    "Sovereign": "KP",
+    "Zip Format": "",
+    "Zip Name": "",
+    "Regex": ""
+  },
+  {
+    "ISO": "MP",
+    "Country": "Northern Mariana Islands",
+    "Sovereign": "US",
+    "Zip Format": "99999",
+    "Zip Name": "ZIP code",
+    "Regex": "\\d{5}"
+  },
+  {
+    "ISO": "NO",
+    "Country": "Norway",
+    "Sovereign": "NO",
+    "Zip Format": "9999",
+    "Zip Name": "Postnummer",
+    "Regex": "\\d{4}"
+  },
+  {
+    "ISO": "OM",
+    "Country": "Oman",
+    "Sovereign": "OM",
+    "Zip Format": "999",
+    "Zip Name": "Postal code",
+    "Regex": "\\d{3}"
+  },
+  {
+    "ISO": "PK",
+    "Country": "Pakistan",
+    "Sovereign": "PK",
+    "Zip Format": "99999",
+    "Zip Name": "Postal code",
+    "Regex": "\\d{5}"
+  },
+  {
+    "ISO": "PW",
+    "Country": "Palau",
+    "Sovereign": "US",
+    "Zip Format": "96999",
+    "Zip Name": "ZIP code",
+    "Regex": "969\\d{2}"
+  },
+  {
+    "ISO": "PS",
+    "Country": "Palestine",
+    "Sovereign": "PS",
+    "Zip Format": "P999 9999",
+    "Zip Name": "Postcode",
+    "Regex": "P\\d{3}\\s\\d{4}"
+  },
+  {
+    "ISO": "PA",
+    "Country": "Panama",
+    "Sovereign": "PA",
+    "Zip Format": "",
+    "Zip Name": "",
+    "Regex": ""
+  },
+  {
+    "ISO": "PG",
+    "Country": "Papua New Guinea",
+    "Sovereign": "PG",
+    "Zip Format": "999",
+    "Zip Name": "Postal code",
+    "Regex": "\\d{3}"
+  },
+  {
+    "ISO": "PY",
+    "Country": "Paraguay",
+    "Sovereign": "PY",
+    "Zip Format": "999999",
+    "Zip Name": "Código postal",
+    "Regex": "\\d{6}"
+  },
+  {
+    "ISO": "PE",
+    "Country": "Peru",
+    "Sovereign": "PE",
+    "Zip Format": "99999",
+    "Zip Name": "Código postal",
+    "Regex": "\\d{5}"
+  },
+  {
+    "ISO": "PH",
+    "Country": "Philippines",
+    "Sovereign": "PH",
+    "Zip Format": "9999",
+    "Zip Name": "Postal code",
+    "Regex": "\\d{4}"
+  },
+  {
+    "ISO": "PN",
+    "Country": "Pitcairn Islands",
+    "Sovereign": "GB",
+    "Zip Format": "PCRN 1ZZ",
+    "Zip Name": "Postcode",
+    "Regex": "PCRN 1ZZ"
+  },
+  {
+    "ISO": "PL",
+    "Country": "Poland",
+    "Sovereign": "PL",
+    "Zip Format": "99-999",
+    "Zip Name": "Kod pocztowy",
+    "Regex": "\\d{2}\\-\\d{3}"
+  },
+  {
+    "ISO": "PT",
+    "Country": "Portugal",
+    "Sovereign": "PT",
+    "Zip Format": "9999-999",
+    "Zip Name": "Código postal",
+    "Regex": "\\d{4}\\-\\d{3}"
+  },
+  {
+    "ISO": "PR",
+    "Country": "Puerto Rico",
+    "Sovereign": "US",
+    "Zip Format": "99999",
+    "Zip Name": "ZIP code",
+    "Regex": "\\d{5}"
+  },
+  {
+    "ISO": "QA",
+    "Country": "Qatar",
+    "Sovereign": "QA",
+    "Zip Format": "",
+    "Zip Name": "",
+    "Regex": ""
+  },
+  {
+    "ISO": "MK",
+    "Country": "Republic of North Macedonia",
+    "Sovereign": "MK",
+    "Zip Format": "9999",
+    "Zip Name": "Postal code",
+    "Regex": "\\d{4}"
+  },
+  {
+    "ISO": "RE",
+    "Country": "Réunion",
+    "Sovereign": "FR",
+    "Zip Format": "99999",
+    "Zip Name": "Code postal",
+    "Regex": "\\d{5}"
+  },
+  {
+    "ISO": "RO",
+    "Country": "Romania",
+    "Sovereign": "RO",
+    "Zip Format": "999999",
+    "Zip Name": "Cod poștal",
+    "Regex": "\\d{6}"
+  },
+  {
+    "ISO": "RU",
+    "Country": "Russia",
+    "Sovereign": "RU",
+    "Zip Format": "999999",
+    "Zip Name": "Почтовый индекс",
+    "Regex": "\\d{6}"
+  },
+  {
+    "ISO": "RW",
+    "Country": "Rwanda",
+    "Sovereign": "RW",
+    "Zip Format": "",
+    "Zip Name": "",
+    "Regex": ""
+  },
+  {
+    "ISO": "BL",
+    "Country": "Saint Barthélemy",
+    "Sovereign": "FR",
+    "Zip Format": "99999",
+    "Zip Name": "Code postal",
+    "Regex": "\\d{5}"
+  },
+  {
+    "ISO": "SH",
+    "Country": "Saint Helena, Ascension and Tristan da Cunha",
+    "Sovereign": "GB",
+    "Zip Format": "AAAA 1ZZ",
+    "Zip Name": "Postcode",
+    "Regex": "[A-Z]{4}\\s1ZZ"
+  },
+  {
+    "ISO": "KN",
+    "Country": "Saint Kitts and Nevis",
+    "Sovereign": "KN",
+    "Zip Format": "",
+    "Zip Name": "",
+    "Regex": ""
+  },
+  {
+    "ISO": "LC",
+    "Country": "Saint Lucia",
+    "Sovereign": "LC",
+    "Zip Format": "LC99 999",
+    "Zip Name": "Postcode",
+    "Regex": "LC\\d{2}\\s\\d{3}"
+  },
+  {
+    "ISO": "MF",
+    "Country": "Saint Martin",
+    "Sovereign": "FR",
+    "Zip Format": "99999",
+    "Zip Name": "Code postal",
+    "Regex": "\\d{5}"
+  },
+  {
+    "ISO": "PM",
+    "Country": "Saint Pierre and Miquelon",
+    "Sovereign": "FR",
+    "Zip Format": "99999",
+    "Zip Name": "Code postal",
+    "Regex": "\\d{5}"
+  },
+  {
+    "ISO": "VC",
+    "Country": "Saint Vincent and the Grenadines",
+    "Sovereign": "VC",
+    "Zip Format": "VC9999",
+    "Zip Name": "Postal code",
+    "Regex": "VC\\d{4}"
+  },
+  {
+    "ISO": "WS",
+    "Country": "Samoa",
+    "Sovereign": "WS",
+    "Zip Format": "WS9999",
+    "Zip Name": "Postcode",
+    "Regex": "WS\\d{4}"
+  },
+  {
+    "ISO": "SM",
+    "Country": "San Marino",
+    "Sovereign": "SM",
+    "Zip Format": "99999",
+    "Zip Name": "CPI",
+    "Regex": "\\d{5}"
+  },
+  {
+    "ISO": "ST",
+    "Country": "São Tomé and Príncipe",
+    "Sovereign": "ST",
+    "Zip Format": "",
+    "Zip Name": "",
+    "Regex": ""
+  },
+  {
+    "ISO": "SA",
+    "Country": "Saudi Arabia",
+    "Sovereign": "SA",
+    "Zip Format": "99999",
+    "Zip Name": "Postal code",
+    "Regex": "\\d{5}"
+  },
+  {
+    "ISO": "SN",
+    "Country": "Senegal",
+    "Sovereign": "SN",
+    "Zip Format": "99999",
+    "Zip Name": "Code postal",
+    "Regex": "\\d{5}"
+  },
+  {
+    "ISO": "RS",
+    "Country": "Serbia",
+    "Sovereign": "RS",
+    "Zip Format": "99999",
+    "Zip Name": "Poštanski broj",
+    "Regex": "\\d{5}"
+  },
+  {
+    "ISO": "SC",
+    "Country": "Seychelles",
+    "Sovereign": "SC",
+    "Zip Format": "",
+    "Zip Name": "",
+    "Regex": ""
+  },
+  {
+    "ISO": "SL",
+    "Country": "Sierra Leone",
+    "Sovereign": "SL",
+    "Zip Format": "",
+    "Zip Name": "",
+    "Regex": ""
+  },
+  {
+    "ISO": "SG",
+    "Country": "Singapore",
+    "Sovereign": "SG",
+    "Zip Format": "999999",
+    "Zip Name": "Postal code",
+    "Regex": "\\d{6}"
+  },
+  {
+    "ISO": "SX",
+    "Country": "Sint Maarten",
+    "Sovereign": "NL",
+    "Zip Format": "",
+    "Zip Name": "",
+    "Regex": ""
+  },
+  {
+    "ISO": "SK",
+    "Country": "Slovakia",
+    "Sovereign": "SK",
+    "Zip Format": "999 99",
+    "Zip Name": "PSČ",
+    "Regex": "\\d{3}\\s\\d{2}"
+  },
+  {
+    "ISO": "SI",
+    "Country": "Slovenia",
+    "Sovereign": "SI",
+    "Zip Format": "9999",
+    "Zip Name": "Poštna številka",
+    "Regex": "\\d{4}"
+  },
+  {
+    "ISO": "SB",
+    "Country": "Solomon Islands",
+    "Sovereign": "SB",
+    "Zip Format": "",
+    "Zip Name": "",
+    "Regex": ""
+  },
+  {
+    "ISO": "SO",
+    "Country": "Somalia",
+    "Sovereign": "SO",
+    "Zip Format": "",
+    "Zip Name": "",
+    "Regex": ""
+  },
+  {
+    "ISO": "ZA",
+    "Country": "South Africa",
+    "Sovereign": "ZA",
+    "Zip Format": "9999",
+    "Zip Name": "Postal code",
+    "Regex": "\\d{4}"
+  },
+  {
+    "ISO": "GS",
+    "Country": "South Georgia and Sandwich",
+    "Sovereign": "GB",
+    "Zip Format": "SIQQ 1ZZ",
+    "Zip Name": "Postcode",
+    "Regex": "SIQQ 1ZZ"
+  },
+  {
+    "ISO": "KR",
+    "Country": "South Korea",
+    "Sovereign": "KR",
+    "Zip Format": "99999",
+    "Zip Name": "우편번호",
+    "Regex": "\\d{5}"
+  },
+  {
+    "ISO": "SS",
+    "Country": "South Sudan",
+    "Sovereign": "SS",
+    "Zip Format": "",
+    "Zip Name": "",
+    "Regex": ""
+  },
+  {
+    "ISO": "ES",
+    "Country": "Spain",
+    "Sovereign": "ES",
+    "Zip Format": "99999",
+    "Zip Name": "Código postal",
+    "Regex": "\\d{5}"
+  },
+  {
+    "ISO": "LK",
+    "Country": "Sri Lanka",
+    "Sovereign": "LK",
+    "Zip Format": "99999",
+    "Zip Name": "Postal code",
+    "Regex": "\\d{5}"
+  },
+  {
+    "ISO": "SD",
+    "Country": "Sudan",
+    "Sovereign": "SD",
+    "Zip Format": "",
+    "Zip Name": "",
+    "Regex": ""
+  },
+  {
+    "ISO": "SR",
+    "Country": "Suriname",
+    "Sovereign": "SR",
+    "Zip Format": "",
+    "Zip Name": "",
+    "Regex": ""
+  },
+  {
+    "ISO": "SJ",
+    "Country": "Svalbard and Jan Mayen",
+    "Sovereign": "NO",
+    "Zip Format": "9999",
+    "Zip Name": "Postnummer",
+    "Regex": "\\d{4}"
+  },
+  {
+    "ISO": "SE",
+    "Country": "Sweden",
+    "Sovereign": "SE",
+    "Zip Format": "999 99",
+    "Zip Name": "Postnummer",
+    "Regex": "\\d{3}\\s\\d{2}"
+  },
+  {
+    "ISO": "CH",
+    "Country": "Switzerland",
+    "Sovereign": "CH",
+    "Zip Format": "9999",
+    "Zip Name": "NPA",
+    "Regex": "\\d{4}"
+  },
+  {
+    "ISO": "SY",
+    "Country": "Syria",
+    "Sovereign": "SY",
+    "Zip Format": "",
+    "Zip Name": "",
+    "Regex": ""
+  },
+  {
+    "ISO": "TW",
+    "Country": "Taiwan",
+    "Sovereign": "CN",
+    "Zip Format": "999999",
+    "Zip Name": "Postal code",
+    "Regex": "\\d{6}"
+  },
+  {
+    "ISO": "TJ",
+    "Country": "Tajikistan",
+    "Sovereign": "TJ",
+    "Zip Format": "999999",
+    "Zip Name": "Postal code",
+    "Regex": "\\d{6}"
+  },
+  {
+    "ISO": "TZ",
+    "Country": "Tanzania",
+    "Sovereign": "TZ",
+    "Zip Format": "99999",
+    "Zip Name": "Postal codes",
+    "Regex": "\\d{5}"
+  },
+  {
+    "ISO": "TH",
+    "Country": "Thailand",
+    "Sovereign": "TH",
+    "Zip Format": "99999",
+    "Zip Name": "Postal code",
+    "Regex": "\\d{5}"
+  },
+  {
+    "ISO": "TL",
+    "Country": "Timor-Leste",
+    "Sovereign": "TL",
+    "Zip Format": "",
+    "Zip Name": "",
+    "Regex": ""
+  },
+  {
+    "ISO": "TG",
+    "Country": "Togo",
+    "Sovereign": "TG",
+    "Zip Format": "",
+    "Zip Name": "",
+    "Regex": ""
+  },
+  {
+    "ISO": "TK",
+    "Country": "Tokelau",
+    "Sovereign": "NZ",
+    "Zip Format": "",
+    "Zip Name": "",
+    "Regex": ""
+  },
+  {
+    "ISO": "TO",
+    "Country": "Tonga",
+    "Sovereign": "TO",
+    "Zip Format": "",
+    "Zip Name": "",
+    "Regex": ""
+  },
+  {
+    "ISO": "TT",
+    "Country": "Trinidad and Tobago",
+    "Sovereign": "TT",
+    "Zip Format": "999999",
+    "Zip Name": "Postal code",
+    "Regex": "\\d{6}"
+  },
+  {
+    "ISO": "TN",
+    "Country": "Tunisia",
+    "Sovereign": "TN",
+    "Zip Format": "9999",
+    "Zip Name": "Code postal",
+    "Regex": "\\d{4}"
+  },
+  {
+    "ISO": "TR",
+    "Country": "Türkiye",
+    "Sovereign": "TR",
+    "Zip Format": "99999",
+    "Zip Name": "Posta kodu",
+    "Regex": "\\d{5}"
+  },
+  {
+    "ISO": "TM",
+    "Country": "Turkmenistan",
+    "Sovereign": "TM",
+    "Zip Format": "999999",
+    "Zip Name": "Postal code",
+    "Regex": "\\d{6}"
+  },
+  {
+    "ISO": "TC",
+    "Country": "Turks and Caicos Islands",
+    "Sovereign": "GB",
+    "Zip Format": "TKCA 1ZZ",
+    "Zip Name": "Postcode",
+    "Regex": "TKCA 1ZZ"
+  },
+  {
+    "ISO": "TV",
+    "Country": "Tuvalu",
+    "Sovereign": "TV",
+    "Zip Format": "",
+    "Zip Name": "",
+    "Regex": ""
+  },
+  {
+    "ISO": "VI",
+    "Country": "U.S. Virgin Islands",
+    "Sovereign": "US",
+    "Zip Format": "99999",
+    "Zip Name": "ZIP code",
+    "Regex": "\\d{5}"
+  },
+  {
+    "ISO": "UG",
+    "Country": "Uganda",
+    "Sovereign": "UG",
+    "Zip Format": "99999",
+    "Zip Name": "Postcodes",
+    "Regex": ""
+  },
+  {
+    "ISO": "UA",
+    "Country": "Ukraine",
+    "Sovereign": "UA",
+    "Zip Format": "99999",
+    "Zip Name": "Поштовий індекс",
+    "Regex": "\\d{5}"
+  },
+  {
+    "ISO": "AE",
+    "Country": "United Arab Emirates",
+    "Sovereign": "AE",
+    "Zip Format": "99999 99999",
+    "Zip Name": "PostCodes",
+    "Regex": "\\d{5}\\s\\d{5}"
+  },
+  {
+    "ISO": "GB",
+    "Country": "United Kingdom",
+    "Sovereign": "GB",
+    "Zip Format": "AA9 9AA",
+    "Zip Name": "Postcode",
+    "Regex": "[A-Z]{1,2}[0-9][A-Z0-9]?\\s[0-9][A-Z]{2}"
+  },
+  {
+    "ISO": "US",
+    "Country": "United States",
+    "Sovereign": "US",
+    "Zip Format": "99999",
+    "Zip Name": "ZIP code",
+    "Regex": "\\d{5}"
+  },
+  {
+    "ISO": "UY",
+    "Country": "Uruguay",
+    "Sovereign": "UY",
+    "Zip Format": "99999",
+    "Zip Name": "Código postal",
+    "Regex": "\\d{5}"
+  },
+  {
+    "ISO": "UZ",
+    "Country": "Uzbekistan",
+    "Sovereign": "UZ",
+    "Zip Format": "999999",
+    "Zip Name": "Postcode",
+    "Regex": "\\d{6}"
+  },
+  {
+    "ISO": "VU",
+    "Country": "Vanuatu",
+    "Sovereign": "VU",
+    "Zip Format": "",
+    "Zip Name": "",
+    "Regex": ""
+  },
+  {
+    "ISO": "VA",
+    "Country": "Vatican",
+    "Sovereign": "VA",
+    "Zip Format": "00120",
+    "Zip Name": "CAP",
+    "Regex": "120"
+  },
+  {
+    "ISO": "VE",
+    "Country": "Venezuela",
+    "Sovereign": "VE",
+    "Zip Format": "9999",
+    "Zip Name": "Código postal",
+    "Regex": "\\d{4}"
+  },
+  {
+    "ISO": "VN",
+    "Country": "Vietnam",
+    "Sovereign": "VN",
+    "Zip Format": "99999",
+    "Zip Name": "Mã bưu chính",
+    "Regex": "\\d{5}"
+  },
+  {
+    "ISO": "WF",
+    "Country": "Wallis and Futuna",
+    "Sovereign": "FR",
+    "Zip Format": "99999",
+    "Zip Name": "Code postal",
+    "Regex": "\\d{5}"
+  },
+  {
+    "ISO": "YE",
+    "Country": "Yemen",
+    "Sovereign": "YE",
+    "Zip Format": "",
+    "Zip Name": "",
+    "Regex": ""
+  },
+  {
+    "ISO": "ZM",
+    "Country": "Zambia",
+    "Sovereign": "ZM",
+    "Zip Format": "",
+    "Zip Name": "",
+    "Regex": ""
+  },
+  {
+    "ISO": "ZW",
+    "Country": "Zimbabwe",
+    "Sovereign": "ZW",
+    "Zip Format": "",
+    "Zip Name": "",
+    "Regex": ""
+  }
+]

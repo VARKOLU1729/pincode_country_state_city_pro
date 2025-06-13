@@ -1,8 +1,7 @@
 name: pincode_country_state_city_pro
 description: >
-  A Flutter package that provides country, state, and city dropdowns with auto-fill
-  support using pincode. Includes offline location data and customizable form widgets
-  for address selection in Flutter apps.
+  A Flutter package that provides country, state, and city dropdowns with auto-fill support 
+  using pincode and pincode validation based on country specific format.
 version: 0.0.1
 homepage: https://github.com/VARKOLU1729/pincode_country_state_city_pro
 repository: https://github.com/VARKOLU1729/pincode_country_state_city_pro
@@ -27,9 +26,8 @@ dev_dependencies:
 flutter:
 
   # To add assets to your package, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
-  #   - images/a_dot_ham.jpeg
+   assets:
+     - lib/assets/
   #
   # For details regarding assets in packages, see
   # https://flutter.dev/assets-and-images/#from-packages
