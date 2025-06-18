@@ -1,32 +1,36 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+# 📦 pincode_address_picker
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages).
+A Flutter package that provides:
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages).
--->
+✅ Country → State → City cascading dropdowns  
+✅ Pincode-based auto-fill of location fields  
+✅ Country-specific pincode validation using regex  
+✅ Offline data — no API needed  
+✅ Fully customizable form widgets for clean address entry
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+> Perfect for apps that collect addresses: e-commerce, delivery, registration, checkout, etc.
 
-## Features
+---
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+## ✨ Features
 
-## Getting started
+- 🌍 Select country, state, and city using hierarchical dropdowns
+- 📮 Auto-fill address details from pincode (offline)
+- ✔️ Validate pincode format based on country using regex
+- 💡 Works offline with preloaded JSON data
+- 🎨 Customizable dropdown UI widgets
+- 📱 Compatible with Flutter web and mobile
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+---
 
-## Usage
+## 🚀 Getting Started
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
+### 1. Add to `pubspec.yaml`
+
+```yaml
+dependencies:
+  pincode_address_picker: ^1.0.0
+```
 
 ```dart
 const like = 'sample';
@@ -34,6 +38,6 @@ const like = 'sample';
 
 ## Additional information
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+🙌 Contributing : 
+Found a bug? Want to add more countries or improve UX?
+PRs are welcome! Open issues, contribute, or star the repo 💙
