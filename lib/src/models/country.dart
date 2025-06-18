@@ -19,4 +19,12 @@ class Country {
       flagUri: 'assets/flags/${data['isoCode'].toLowerCase()}.png',
     );
   }
+
+  @override
+  bool operator ==(Object other) {
+    return other is Country && other.name == name && other.isoCode == isoCode;
+  }
+
+  @override
+  int get hashCode => Object.hashAll([name, isoCode]);
 }

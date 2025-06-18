@@ -37,4 +37,12 @@ class City {
         'isoCode': isoCode,
         'postalCode': postalCode,
       };
+
+  @override
+  bool operator ==(Object other) {
+    return other is City && other.name == name && other.countryCode == countryCode && other.stateCode == stateCode;
+  }
+
+  @override
+  int get hashCode => Object.hashAll([name, countryCode, stateCode]);
 }

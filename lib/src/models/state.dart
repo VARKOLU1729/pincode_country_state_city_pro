@@ -28,4 +28,12 @@ class StateModel {
         'latitude': latitude,
         'longitude': longitude,
       };
+
+  @override
+  bool operator ==(Object other) {
+    return other is StateModel && other.name == name && other.countryCode == countryCode && other.isoCode == isoCode;
+  }
+
+  @override
+  int get hashCode => Object.hashAll([name, countryCode, isoCode]);
 }
