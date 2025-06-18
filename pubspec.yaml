@@ -28,7 +28,11 @@ flutter:
 
   # To add assets to your package, add an assets section, like this:
    assets:
-     - lib/assets/
+     - lib/assets/flags/
+     - lib/assets/country.json
+     - lib/assets/state.json
+     - lib/assets/city_with_postal_codes.json
+     - lib/assets/postal_code_formats.json
   #
   # For details regarding assets in packages, see
   # https://flutter.dev/assets-and-images/#from-packages

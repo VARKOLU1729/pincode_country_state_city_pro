@@ -1,11 +1,11 @@
 class Country {
-  String? name;
+  String name;
   String? isoCode;
   String? dialCode;
   String? flagUri;
 
   Country({
-    this.name,
+    required this.name,
     this.isoCode,
     this.dialCode,
     this.flagUri,

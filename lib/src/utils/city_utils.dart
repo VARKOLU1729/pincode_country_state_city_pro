@@ -10,7 +10,7 @@ class CityUtils {
     if (_cachedCities.isNotEmpty) {
       return _cachedCities;
     }
-    final res = await rootBundle.loadString('assets/CSC/city_with_postal_codes.json');
+    final res = await rootBundle.loadString('packages/pincode_country_state_city_pro/lib/assets/city_with_postal_codes.json');
     final data = jsonDecode(res) as List;
     _cachedCities = List<City>.from(
       data.map((item) => City.fromJson(item)),
