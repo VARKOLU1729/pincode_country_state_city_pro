@@ -11,7 +11,7 @@ class StateUtils {
     if (_cachedStates.isNotEmpty) {
       return _cachedStates;
     }
-    final res = await rootBundle.loadString('assets/CSC/state.json');
+    final res = await rootBundle.loadString('packages/pincode_country_state_city_pro/lib/assets/state.json');
     final data = jsonDecode(res) as List;
     _cachedStates = List<StateModel>.from(
       data.map((item) => StateModel.fromJson(item)),

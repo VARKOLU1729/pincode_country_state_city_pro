@@ -11,7 +11,7 @@ class CountryUtils {
     if (_cachedCountries.isNotEmpty) {
       return _cachedCountries;
     }
-    final res = await rootBundle.loadString('assets/CSC/state.json');
+    final res = await rootBundle.loadString('packages/pincode_country_state_city_pro/lib/assets/country.json');
     final data = jsonDecode(res) as List;
     _cachedCountries = List<Country>.from(
       data.map((item) => Country.fromJson(item)),
