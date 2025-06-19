@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pincode_country_state_city_pro/pincode_country_state_city_pro.dart';
 import 'package:pincode_country_state_city_pro/src/utils/address_picker_controllers.dart';
+import 'package:pincode_country_state_city_pro/src/utils/postal_code_format_utils.dart';
 import 'package:pincode_country_state_city_pro/src/utils/state_utils.dart';
 import 'package:pincode_country_state_city_pro/src/widgets/dropdown_search.dart';
 
@@ -41,7 +42,10 @@ class CountryPicker extends StatelessWidget {
                     controller.stateDropdownKey.currentState?.clear();
                     controller.cityDropdownKey.currentState?.clear();
 
-                    if (country?.isoCode != null) controller.statesList.value = await StateUtils.getStatesOfCountry(country!.isoCode!);
+                    if (country?.isoCode != null) {
+                      controller.statesList.value = await StateUtils.getStatesOfCountry(country!.isoCode!);
+                      controller.postalCodeFormat = await PostalCodeFormatsUtils.getPostalCodeFormatByCountryCode(country.isoCode!);
+                    }
 
                     if (onChanged != null) onChanged!(country);
                   },

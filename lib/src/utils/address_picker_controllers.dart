@@ -1,6 +1,7 @@
 import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/material.dart';
 import 'package:pincode_country_state_city_pro/pincode_country_state_city_pro.dart';
+import 'package:pincode_country_state_city_pro/src/utils/postal_code_format_utils.dart';
 
 class AddressPickerController {
   AddressPickerController._privateConstructor();
@@ -11,6 +12,7 @@ class AddressPickerController {
   GlobalKey<DropdownSearchState<StateModel>> stateDropdownKey = GlobalKey();
   GlobalKey<DropdownSearchState<City>> cityDropdownKey = GlobalKey();
   TextEditingController pinCodeController = TextEditingController();
+  PostalCodeFormat? postalCodeFormat;
 
   ValueNotifier<List<City>> citiesList = ValueNotifier(<City>[]);
   ValueNotifier<List<StateModel>> statesList = ValueNotifier(<StateModel>[]);

@@ -65,10 +65,10 @@ Widget dropDownSearch<T>({
         maxLines: 1,
         overflow: TextOverflow.ellipsis,
         style: TextStyle(
-          fontSize: 14,
+          fontSize: 16,
           fontFamily: "Inter",
-          color: value != null ? Color(0xff5A6478) : Color(0xff5A6478).withOpacity(0.75),
-          fontWeight: FontWeight.w600,
+          color: value != null ? Colors.black : Colors.black.withOpacity(0.75),
+          fontWeight: value!=null ? FontWeight.w500 : null,
         ),
       );
     },
