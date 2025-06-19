@@ -23,17 +23,39 @@ class _PincodeCountryStateCityPickerState extends State<PincodeCountryStateCityP
     });
   }
 
+  Widget getWidget(String title, Widget mainWidget) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          title,
+          style: TextStyle(color: Colors.black, fontSize: 20),
+        ),
+        const SizedBox(
+          height: 8,
+        ),
+        mainWidget,
+        const SizedBox(height: 12,)
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
-        return Column(
-          children: [
-            const SizedBox(height: 100),
-            CountryPicker(controller: widget.controller),
-            StatePicker(controller: widget.controller),
-            CityPicker(controller: widget.controller),
-          ],
+        return Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 15),
+          child: Column(
+            children: [
+              const SizedBox(height: 20),
+              getWidget("Country", CountryPicker(controller: widget.controller)),
+              getWidget("Pincode", PincodeField(controller: widget.controller)),
+              getWidget("State", StatePicker(controller: widget.controller)),
+              getWidget("City", CityPicker(controller: widget.controller)),
+            ],
+          ),
         );
       },
     );
