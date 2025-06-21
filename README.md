@@ -1,12 +1,11 @@
 # 📦 pincode_address_picker
 
-A Flutter package that provides:
+A complete Flutter package to pick and validate **Country → State → City** using dropdowns, or auto-fill them by entering a **pincode/postal code**.
 
-✅ Country → State → City cascading dropdowns  
-✅ Pincode-based auto-fill of location fields  
-✅ Country-specific pincode validation using regex  
-✅ Offline data — no API needed  
-✅ Fully customizable form widgets for clean address entry
+✅ Built-in country/state/city dataset  
+✅ Auto-fill from pincode  
+✅ Supports layout customization  
+✅ Individual utilities for custom use
 
 > Perfect for apps that collect addresses: e-commerce, delivery, registration, checkout, etc.
 
@@ -14,12 +13,11 @@ A Flutter package that provides:
 
 ## ✨ Features
 
-- 🌍 Select country, state, and city using hierarchical dropdowns
-- 📮 Auto-fill address details from pincode (offline)
-- ✔️ Validate pincode format based on country using regex
-- 💡 Works offline with preloaded JSON data
-- 🎨 Customizable dropdown UI widgets
-- 📱 Compatible with Flutter web and mobile
+- 📍 **Pincode to City/State** auto-detection
+- 🌐 Built-in dataset of countries, states, and cities (with lat/lng and postal info)
+- 🧩 Customizable UI layouts (4x1 column or 2x2 grid)
+- 🎯 RegEx-based validation for postal codes by country
+- 🔧 Exposed utility APIs if you want to use your own UI
 
 ---
 
@@ -32,8 +30,70 @@ dependencies:
   pincode_address_picker: ^1.0.0
 ```
 
+### 2. Usage
+
+#### Using the default picker UI
 ```dart
-const like = 'sample';
+final controller = AddressPickerController();
+
+PincodeCountryStateCityPicker(
+  controller: controller,
+  gridType: GridType.grid4x1, // or GridType.grid2x2
+)
+```
+
+## 🖼 Layout Options
+#### Support two pre-defined layouts:
+
+#### GridType.grid4x1 → All fields in vertical column
+
+#### GridType.grid2x2 → 2×2 compact grid
+
+## 🛠 AddressPickerController
+
+#### This controller helps you manage and listen to the selected country, state, city, and pincode.
+
+```dart
+final controller = AddressPickerController();
+
+controller.selectedCountry.addListener(() {
+  print(controller.selectedCountry.value?.name);
+});
+```
+
+## Get selected values
+
+```dart
+controller.selectedCountry.value;
+controller.selectedState.value;
+controller.selectedCity.value;
+```
+
+## 🧪 If You Want Only the Data
+#### You can use the utility APIs without the picker UI.
+
+## 🗺 Get Countries
+```dart
+List<Country> countries = await getAllCountries();
+Country? india = await getCountryByIsoCode(isoCode: "IN");
+```
+## 🏙 Get States
+```dart
+List<StateModel> states = await getStatesOfCountry(countryCode: "IN");
+StateModel? state = await getStateByCode(countryCode: "IN", stateCode: "TG");
+```
+
+## 🏡 Get Cities
+```dart
+List<City> cities = await getCitiesOfState(countryCode: "IN", stateCode: "AP");
+City? city = await getCityByPostalCode(postalCode: "502103", countryCode: "TG");
+```
+
+### 🗺 🏙 🏡  Get Address(State, City) from postalCode
+```dart
+AddressData addressData = await getStateAndCityByPostalCode(postalCode: "502103", countryCode: "IN");
+State state = addressData.state;
+City city = addressData.city;
 ```
 
 ## Additional information
