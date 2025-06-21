@@ -68,7 +68,7 @@ Widget dropDownSearch<T>({
           fontSize: 16,
           fontFamily: "Inter",
           color: value != null ? Colors.black : Colors.black.withOpacity(0.75),
-          fontWeight: value!=null ? FontWeight.w500 : null,
+          fontWeight: value != null ? FontWeight.w500 : null,
         ),
       );
     },
