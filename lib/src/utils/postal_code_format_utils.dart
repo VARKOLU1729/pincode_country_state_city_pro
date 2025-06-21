@@ -1,18 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/services.dart';
-
-class PostalCodeFormat {
-  final String countryCode;
-  final String? format;
-  final RegExp? regexPattern;
-
-  PostalCodeFormat({
-    required this.countryCode,
-    required this.format,
-    required this.regexPattern,
-  });
-}
+import 'package:pincode_country_state_city_pro/src/models/postal_code_format.dart';
 
 class PostalCodeFormatsUtils {
   static List<PostalCodeFormat> _cachedPostalCodeFormats = [];
@@ -25,10 +14,10 @@ class PostalCodeFormatsUtils {
     final data = jsonDecode(res) as List;
     _cachedPostalCodeFormats = List<PostalCodeFormat>.from(
       data.map((item) => PostalCodeFormat(
-        countryCode: item['ISO'],
-        format: item['Zip Format'] == "" ? null : item['Zip Format'],
-        regexPattern: (item["Regex"] == "") ? null : RegExp(item['Regex']),
-      )),
+            countryCode: item['ISO'],
+            format: item['Zip Format'] == "" ? null : item['Zip Format'],
+            regexPattern: (item["Regex"] == "") ? null : RegExp(item['Regex']),
+          )),
     );
     return _cachedPostalCodeFormats;
   }
@@ -41,7 +30,7 @@ class PostalCodeFormatsUtils {
 
   static TextInputType getKeyboardTypeForPincodePattern(String? zipFormat) {
     if (zipFormat == null) return TextInputType.text;
-    final allowedRegEx = RegExp(r'^[\d\s-]+$');
+    final allowedRegEx = RegExp(r'^[\d\s-]+$'); //number keyboard regex
     if (allowedRegEx.hasMatch(zipFormat)) {
       return TextInputType.number;
     }

@@ -2,11 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:pincode_country_state_city_pro/pincode_country_state_city_pro.dart';
 import 'package:pincode_country_state_city_pro/src/utils/address_picker_controllers.dart';
 
+enum GridType { grid2x2, grid4x1 }
+
 class PincodeCountryStateCityPicker extends StatefulWidget {
   final AddressPickerController controller;
+  final GridType gridType;
   const PincodeCountryStateCityPicker({
     super.key,
     required this.controller,
+    this.gridType = GridType.grid4x1,
   });
 
   @override
@@ -30,13 +34,15 @@ class _PincodeCountryStateCityPickerState extends State<PincodeCountryStateCityP
       children: [
         Text(
           title,
-          style: TextStyle(color: Colors.black, fontSize: 20),
+          style: const TextStyle(color: Colors.black, fontSize: 20),
         ),
         const SizedBox(
           height: 8,
         ),
         mainWidget,
-        const SizedBox(height: 12,)
+        const SizedBox(
+          height: 12,
+        )
       ],
     );
   }
@@ -47,18 +53,55 @@ class _PincodeCountryStateCityPickerState extends State<PincodeCountryStateCityP
       builder: (context, constraints) {
         return Padding(
           padding: const EdgeInsets.symmetric(horizontal: 15),
-          child: Column(
-            children: [
-              const SizedBox(height: 20),
-              getWidget("Country", CountryPicker(controller: widget.controller)),
-              getWidget("Pincode", PincodeField(controller: widget.controller)),
-              getWidget("State", StatePicker(controller: widget.controller)),
-              getWidget("City", CityPicker(controller: widget.controller)),
-            ],
-          ),
+          child: widget.gridType == GridType.grid4x1
+              ? Column(
+                  children: [
+                    const SizedBox(height: 20),
+                    getWidget("Country", CountryPicker(controller: widget.controller)),
+                    getWidget("Pincode", PincodeField(controller: widget.controller)),
+                    getWidget("State", StatePicker(controller: widget.controller)),
+                    getWidget("City", CityPicker(controller: widget.controller)),
+                  ],
+                )
+              : SizedBox(
+                  // height: 200,
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      Row(
+                        mainAxisSize: MainAxisSize.min,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Expanded(child: getWidget("Country", CountryPicker(controller: widget.controller))),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          Expanded(child: getWidget("Pincode", PincodeField(controller: widget.controller))),
+                        ],
+                      ),
+                      Row(
+                        mainAxisSize: MainAxisSize.min,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Expanded(child: getWidget("State", StatePicker(controller: widget.controller))),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          Expanded(child: getWidget("City", CityPicker(controller: widget.controller))),
+                        ],
+                      ),
+                      const Expanded(
+                        child: SizedBox(),
+                      )
+                    ],
+                  ),
+                ),
         );
       },
     );
-    ;
   }
 }

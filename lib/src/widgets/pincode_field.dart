@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:pincode_country_state_city_pro/pincode_country_state_city_pro.dart';
+import 'package:pincode_country_state_city_pro/src/models/address_response.dart';
 import 'package:pincode_country_state_city_pro/src/services/address_service.dart';
 import 'package:pincode_country_state_city_pro/src/utils/city_utils.dart';
 import 'package:pincode_country_state_city_pro/src/utils/postal_code_format_utils.dart';
@@ -42,11 +43,24 @@ class _PincodeFieldState extends State<PincodeField> {
 
   @override
   Widget build(BuildContext context) {
-    InputDecoration default_input_decoration = InputDecoration(
-        fillColor: Color(0xffFDFBF9),
+    InputDecoration defaultInputDecoration = InputDecoration(
+        fillColor: Colors.white,
+        filled: true,
         labelText: "Enter pincode",
-        contentPadding: EdgeInsets.only(top: 8, bottom: 8, left: 16),
         floatingLabelBehavior: FloatingLabelBehavior.never,
+        enabledBorder: const OutlineInputBorder(
+          borderSide: BorderSide(color: Colors.grey),
+          borderRadius: BorderRadius.all(Radius.circular(3.0)),
+        ),
+        focusedBorder: const OutlineInputBorder(
+          borderSide: BorderSide(color: Colors.orange),
+          borderRadius: BorderRadius.all(Radius.circular(3.0)),
+        ),
+        errorBorder: const OutlineInputBorder(
+          borderSide: BorderSide(color: Colors.red),
+          borderRadius: BorderRadius.all(Radius.circular(3.0)),
+        ),
+        contentPadding: EdgeInsets.only(left: 16, top: 8, bottom: 8),
         border: const OutlineInputBorder(),
         suffixIcon: isFetchingDataFromPincode
             ? const Center(
@@ -69,7 +83,7 @@ class _PincodeFieldState extends State<PincodeField> {
         _pincodeFocusNode.unfocus();
       },
       style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: Colors.black, fontFamily: "Inter"),
-      decoration: default_input_decoration,
+      decoration: defaultInputDecoration,
       // initialValue: address.pincode?.toString(),
       controller: widget.controller.pinCodeController,
       validator: (value) {
