@@ -96,8 +96,13 @@ State state = addressData.state;
 City city = addressData.city;
 ```
 
+### Get PostalCodeFormat from countryCode
+```dart
+PostalCodeFormat? postalCodeFormat = getPostalFormatFromCountryCode(countryCode : "IN");
+```
+
 ## Additional information
 
 🙌 Contributing : 
-Found a bug? Want to add more countries or improve UX?
-PRs are welcome! Open issues, contribute, or star the repo 💙
+Found a bug? Want to add more data or improve UX?
+PRs are welcome!!  Open issues, contribute, or star the repo 💙
