@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pincode_country_state_city_pro/pincode_country_state_city_pro.dart';
-import 'package:pincode_country_state_city_pro/src/utils/address_picker_controllers.dart';
+import 'package:pincode_country_state_city_pro/src/components/messenger.dart';
 import 'package:pincode_country_state_city_pro/src/widgets/dropdown_search.dart';
 
 class StatePicker extends StatelessWidget {
@@ -27,31 +27,43 @@ class StatePicker extends StatelessWidget {
               valueListenable: controller.selectedState,
               builder: (context, value2, _) {
                 return dropDownSearch<StateModel>(
-                  key: controller.stateDropdownKey,
-                  context: context,
-                  items: value1,
-                  itemLabelBuilder: itemLabelBuilder ?? (StateModel state) => state.name,
-                  onChanged: (StateModel? state) async {
-                    controller.selectedState.value = state;
+                    key: controller.stateDropdownKey,
+                    dropDownItemType: DropDownItemType.state,
+                    context: context,
+                    items: value1,
+                    itemLabelBuilder:
+                        itemLabelBuilder ?? (StateModel state) => state.name,
+                    onChanged: (StateModel? state) async {
+                      controller.selectedState.value = state;
 
-                    controller.selectedCity.value = null;
-                    controller.pinCodeController.clear();
+                      controller.selectedCity.value = null;
+                      controller.pinCodeController.clear();
 
-                    controller.cityDropdownKey.currentState?.clear();
+                      controller.cityDropdownKey.currentState?.clear();
 
-                    if (controller.selectedCountry.value?.isoCode != null && state?.isoCode != null) {
-                      controller.citiesList.value = await getCitiesOfState(
-                        countryCode: controller.selectedCountry.value!.isoCode!,
-                        stateCode: state!.isoCode,
-                      );
-                    }
+                      if (controller.selectedCountry.value?.isoCode != null &&
+                          state?.isoCode != null) {
+                        controller.citiesList.value = await getCitiesOfState(
+                          countryCode:
+                              controller.selectedCountry.value!.isoCode!,
+                          stateCode: state!.isoCode,
+                        );
+                      }
 
-                    if (onChanged != null) onChanged!(state);
-                  },
-                  onSaved: onSaved,
-                  validator: validator,
-                  selectedItem: value2,
-                );
+                      if (onChanged != null) onChanged!(state);
+                    },
+                    onSaved: onSaved,
+                    validator: validator,
+                    selectedItem: value2,
+                    onBeforePopupOpening: (_) async {
+                      if (controller.selectedCountry.value == null) {
+                        showErrorSnackBar(
+                            context: context,
+                            content: "Please choose a country");
+                        return false;
+                      }
+                      return true;
+                    });
               });
         });
   }

@@ -39,6 +39,7 @@ final controller = AddressPickerController();
 PincodeCountryStateCityPicker(
   controller: controller,
   gridType: GridType.grid4x1, // or GridType.grid2x2
+  showCountryFlag: true //show the country flag
 )
 ```
 

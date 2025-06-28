@@ -13,9 +13,15 @@ class AddressResponse {
       message: json['message'],
       data: json['data'] != null
           ? AddressData(
-              country: json['data']['country'] != null ? Country.fromJson(json['data']['country']) : null,
-              state: json['data']['state'] != null ? StateModel.fromJson(json['data']['state']) : null,
-              city: json['data']['city'] != null ? City.fromJson(json['data']['city']) : null,
+              country: json['data']['country'] != null
+                  ? Country.fromJson(json['data']['country'])
+                  : null,
+              state: json['data']['state'] != null
+                  ? StateModel.fromJson(json['data']['state'])
+                  : null,
+              city: json['data']['city'] != null
+                  ? City.fromJson(json['data']['city'])
+                  : null,
             )
           : null,
       statusCode: json['statusCode'] ?? 0,

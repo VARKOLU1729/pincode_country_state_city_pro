@@ -1,5 +1,8 @@
 import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/material.dart';
+import 'package:pincode_country_state_city_pro/pincode_country_state_city_pro.dart';
+import 'package:pincode_country_state_city_pro/src/components/country_flag_widget.dart';
+import 'package:pincode_country_state_city_pro/src/components/drop_down_item_type.dart';
 
 Widget dropDownSearch<T>({
   required Key? key,
@@ -10,6 +13,8 @@ Widget dropDownSearch<T>({
   required ValueChanged<T?>? onSaved,
   required String? Function(T?)? validator,
   required T? selectedItem,
+  required DropDownItemType dropDownItemType,
+  bool showCountryFlag = false,
   Future<bool?> Function(T?)? onBeforePopupOpening,
 }) {
   return DropdownSearch<T>(
@@ -22,22 +27,23 @@ Widget dropDownSearch<T>({
         isFilterOnline: true,
         showSelectedItems: true,
         searchFieldProps: TextFieldProps(
-          decoration: PHONENUMBER_COUNTRY_SEARCH_DECORATION.copyWith(hintText: "Search countries"),
+          decoration: searchFieldDecoration.copyWith(hintText: "Search ${dropDownItemType.name}"),
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
           autofocus: true,
         ),
-        itemBuilder: (context, country, b) {
+        itemBuilder: (context, item, b) {
           return Padding(
             padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 16.0),
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Expanded(
-                  child: Text(
-                    itemLabelBuilder(country),
-                    overflow: TextOverflow.ellipsis,
-                    maxLines: 1,
-                    style: const TextStyle(fontFamily: "Inter", color: Color(0xff5A6478), fontSize: 16, fontWeight: FontWeight.w500),
-                  ),
+                if (showCountryFlag && dropDownItemType == DropDownItemType.country && item is Country && item.flagUri != null)
+                  countryFlagWidget(item.flagUri!),
+                Text(
+                  itemLabelBuilder(item),
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 1,
+                  style: const TextStyle(fontFamily: "Inter", color: Color(0xff5A6478), fontSize: 16, fontWeight: FontWeight.w500),
                 ),
               ],
             ),
@@ -46,7 +52,7 @@ Widget dropDownSearch<T>({
         emptyBuilder: (context, str) {
           return Center(
             child: Text(
-              "No country found with '$str'.",
+              "No ${dropDownItemType.name} found with '$str'.",
               style: const TextStyle(fontFamily: "Inter", color: Color(0xff5A6478), fontSize: 16, fontWeight: FontWeight.w500),
             ),
           );
@@ -60,45 +66,33 @@ Widget dropDownSearch<T>({
     validator: validator,
     onBeforePopupOpening: onBeforePopupOpening,
     dropdownBuilder: (context, value) {
-      return Text(
-        value != null ? itemLabelBuilder(value) : "Select an option",
-        maxLines: 1,
-        overflow: TextOverflow.ellipsis,
-        style: TextStyle(
-          fontSize: 16,
-          fontFamily: "Inter",
-          color: value != null ? Colors.black : Colors.black.withOpacity(0.75),
-          fontWeight: value != null ? FontWeight.w500 : null,
-        ),
+      return Row(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          if (showCountryFlag && dropDownItemType == DropDownItemType.country && value is Country && value.flagUri != null)
+            countryFlagWidget(value.flagUri!),
+          Text(
+            value != null ? itemLabelBuilder(value) : "Select ${dropDownItemType.name}",
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+            style: TextStyle(
+              fontSize: 16,
+              fontFamily: "Inter",
+              color: value != null ? Colors.black : Colors.black.withOpacity(0.75),
+              fontWeight: value != null ? FontWeight.w500 : null,
+            ),
+          ),
+        ],
       );
     },
     selectedItem: selectedItem,
     clearButtonProps: const ClearButtonProps(isVisible: false),
-    dropdownDecoratorProps: const DropDownDecoratorProps(
-      dropdownSearchDecoration: InputDecoration(
-        hoverColor: Colors.transparent,
-        filled: true,
-        fillColor: Color(0xffFDFBF9),
-        enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: Colors.grey),
-          borderRadius: BorderRadius.all(Radius.circular(3.0)),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: Colors.orange),
-          borderRadius: BorderRadius.all(Radius.circular(3.0)),
-        ),
-        errorBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: Colors.red),
-          borderRadius: BorderRadius.all(Radius.circular(3.0)),
-        ),
-        border: InputBorder.none,
-        contentPadding: EdgeInsets.only(left: 16, top: 8, bottom: 8),
-      ),
-    ),
+    dropdownDecoratorProps: dropDownDecoratorProps,
   );
 }
 
-InputDecoration PHONENUMBER_COUNTRY_SEARCH_DECORATION = const InputDecoration(
+InputDecoration searchFieldDecoration = const InputDecoration(
   filled: true,
   fillColor: Color(0xffEFF3FF),
   focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.transparent)),
@@ -110,4 +104,26 @@ InputDecoration PHONENUMBER_COUNTRY_SEARCH_DECORATION = const InputDecoration(
   // labelText: "Search countries or dial code",
   labelStyle: TextStyle(fontFamily: "Inter", color: Color(0xff828282), fontSize: 14, fontWeight: FontWeight.w400),
   hintStyle: TextStyle(fontFamily: "Inter", color: Color(0xff828282), fontSize: 14, fontWeight: FontWeight.w400),
+);
+
+DropDownDecoratorProps dropDownDecoratorProps = const DropDownDecoratorProps(
+  dropdownSearchDecoration: InputDecoration(
+    hoverColor: Colors.transparent,
+    filled: true,
+    fillColor: Color(0xffFDFBF9),
+    enabledBorder: OutlineInputBorder(
+      borderSide: BorderSide(color: Colors.grey),
+      borderRadius: BorderRadius.all(Radius.circular(3.0)),
+    ),
+    focusedBorder: OutlineInputBorder(
+      borderSide: BorderSide(color: Colors.orange),
+      borderRadius: BorderRadius.all(Radius.circular(3.0)),
+    ),
+    errorBorder: OutlineInputBorder(
+      borderSide: BorderSide(color: Colors.red),
+      borderRadius: BorderRadius.all(Radius.circular(3.0)),
+    ),
+    border: InputBorder.none,
+    contentPadding: EdgeInsets.only(left: 16, top: 8, bottom: 8),
+  ),
 );

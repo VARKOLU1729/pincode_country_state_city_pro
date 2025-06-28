@@ -5,7 +5,8 @@ import 'package:pincode_country_state_city_pro/src/models/postal_code_format.dar
 
 class AddressPickerController {
   AddressPickerController._privateConstructor();
-  static final AddressPickerController _instance = AddressPickerController._privateConstructor();
+  static final AddressPickerController _instance =
+      AddressPickerController._privateConstructor();
   factory AddressPickerController() => _instance;
 
   GlobalKey<DropdownSearchState<Country>> countryDropdownKey = GlobalKey();

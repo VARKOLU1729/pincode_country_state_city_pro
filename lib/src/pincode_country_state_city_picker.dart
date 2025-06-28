@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:pincode_country_state_city_pro/pincode_country_state_city_pro.dart';
-import 'package:pincode_country_state_city_pro/src/utils/address_picker_controllers.dart';
 
 enum GridType { grid2x2, grid4x1 }
 
 class PincodeCountryStateCityPicker extends StatefulWidget {
   final AddressPickerController controller;
   final GridType gridType;
+  final bool showCountryFlag;
   const PincodeCountryStateCityPicker({
     super.key,
     required this.controller,
     this.gridType = GridType.grid4x1,
+    this.showCountryFlag = true,
   });
 
   @override
@@ -57,7 +58,12 @@ class _PincodeCountryStateCityPickerState extends State<PincodeCountryStateCityP
               ? Column(
                   children: [
                     const SizedBox(height: 20),
-                    getWidget("Country", CountryPicker(controller: widget.controller)),
+                    getWidget(
+                        "Country",
+                        CountryPicker(
+                          controller: widget.controller,
+                          showCountryFlag: widget.showCountryFlag,
+                        )),
                     getWidget("Pincode", PincodeField(controller: widget.controller)),
                     getWidget("State", StatePicker(controller: widget.controller)),
                     getWidget("City", CityPicker(controller: widget.controller)),
