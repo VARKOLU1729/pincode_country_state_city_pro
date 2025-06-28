@@ -42,6 +42,7 @@ PincodeCountryStateCityPicker(
   showCountryFlag: true //show the country flag
 )
 ```
+<img src="screenshots/cscp_1.png" alt="My Image" width="300" height="600" />
 
 ## 🖼 Layout Options
 #### Support two pre-defined layouts:
