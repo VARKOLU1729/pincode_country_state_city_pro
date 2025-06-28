@@ -13,7 +13,8 @@ class ValidatorUtils {
       return "PinCode exceeds $POSTAL_CODE_MAX_LENGTH digits";
     }
 
-    if (postalCodeFormat?.format?.length != null && postalCodeFormat?.format?.length != pincode.length) {
+    if (postalCodeFormat?.format?.length != null &&
+        postalCodeFormat?.format?.length != pincode.length) {
       return "Please enter pincode of size ${postalCodeFormat?.format?.length}";
     }
 

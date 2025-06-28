@@ -11,7 +11,8 @@ class CountryUtils {
     if (_cachedCountries.isNotEmpty) {
       return _cachedCountries;
     }
-    final res = await rootBundle.loadString('packages/pincode_country_state_city_pro/lib/assets/country.json');
+    final res = await rootBundle.loadString(
+        'packages/pincode_country_state_city_pro/lib/assets/country.json');
     final data = jsonDecode(res) as List;
     _cachedCountries = List<Country>.from(
       data.map((item) => Country.fromJson(item)),
@@ -21,14 +22,15 @@ class CountryUtils {
 
   ///get list of all countries
   static Future<List<Country>> getCountries() async {
-    final _countries = await _loadCountries();
-    return _countries;
+    final countries = await _loadCountries();
+    return countries;
   }
 
   ///Get Country from its IsoCode(alpha-2 code)
   static Future<Country?> getCountryByCode(String isoCode) async {
-    final _countries = await _loadCountries();
-    final res = _countries.firstWhereOrNull((country) => country.isoCode == isoCode);
+    final countries = await _loadCountries();
+    final res =
+        countries.firstWhereOrNull((country) => country.isoCode == isoCode);
     return res;
   }
 }

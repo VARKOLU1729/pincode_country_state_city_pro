@@ -16,7 +16,7 @@ class Country {
       name: data['name'],
       isoCode: data['isoCode'],
       dialCode: data['dial_code'],
-      flagUri: 'assets/flags/${data['isoCode'].toLowerCase()}.png',
+      flagUri: 'packages/pincode_country_state_city_pro/lib/assets/flags/${data['isoCode'].toLowerCase()}.png',
     );
   }
 

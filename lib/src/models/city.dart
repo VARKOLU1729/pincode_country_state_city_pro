@@ -40,7 +40,10 @@ class City {
 
   @override
   bool operator ==(Object other) {
-    return other is City && other.name == name && other.countryCode == countryCode && other.stateCode == stateCode;
+    return other is City &&
+        other.name == name &&
+        other.countryCode == countryCode &&
+        other.stateCode == stateCode;
   }
 
   @override

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:pincode_country_state_city_pro/pincode_country_state_city_pro.dart';
-import 'package:pincode_country_state_city_pro/src/utils/address_picker_controllers.dart';
 import 'package:pincode_country_state_city_pro/src/utils/postal_code_format_utils.dart';
 import 'package:pincode_country_state_city_pro/src/utils/state_utils.dart';
 import 'package:pincode_country_state_city_pro/src/widgets/dropdown_search.dart';
@@ -11,6 +10,7 @@ class CountryPicker extends StatelessWidget {
   final String Function(Country)? itemLabelBuilder;
   final String? Function(Country?)? validator;
   final AddressPickerController controller;
+  final bool showCountryFlag;
   const CountryPicker({
     super.key,
     required this.controller,
@@ -18,6 +18,7 @@ class CountryPicker extends StatelessWidget {
     this.onSaved,
     this.validator,
     this.itemLabelBuilder,
+    this.showCountryFlag = true,
   });
 
   @override
@@ -30,9 +31,11 @@ class CountryPicker extends StatelessWidget {
               builder: (context, value2, _) {
                 return dropDownSearch<Country>(
                   key: controller.countryDropdownKey,
+                  dropDownItemType: DropDownItemType.country,
                   context: context,
                   items: value1,
                   itemLabelBuilder: itemLabelBuilder ?? (Country country) => country.name,
+                  showCountryFlag: showCountryFlag,
                   onChanged: (Country? country) async {
                     controller.selectedState.value = null;
                     controller.selectedCity.value = null;

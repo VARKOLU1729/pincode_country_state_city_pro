@@ -8,7 +8,8 @@ import 'package:pincode_country_state_city_pro/src/utils/state_utils.dart';
 
 class AddressService {
   static const String FILE_NAME = "address_service";
-  static Future<AddressResponse> getIndianAddress({required String pinCode}) async {
+  static Future<AddressResponse> getIndianAddress(
+      {required String pinCode}) async {
     String url = 'https://api.postalpincode.in/pincode/$pinCode';
     AddressResponse addressResponse = AddressResponse(statusCode: -1);
     try {
@@ -24,8 +25,10 @@ class AddressService {
             final stateName = postOffice['State'];
             final districtName = postOffice['District'];
 
-            final StateModel? state = await StateUtils.getMatchingState(stateName: stateName);
-            final City? city = await CityUtils.getMatchingCity(cityName: districtName);
+            final StateModel? state =
+                await StateUtils.getMatchingState(stateName: stateName);
+            final City? city =
+                await CityUtils.getMatchingCity(cityName: districtName);
 
             addressResponse = AddressResponse.fromJson({
               'statusCode': 0,

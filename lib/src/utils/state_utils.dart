@@ -11,7 +11,8 @@ class StateUtils {
     if (_cachedStates.isNotEmpty) {
       return _cachedStates;
     }
-    final res = await rootBundle.loadString('packages/pincode_country_state_city_pro/lib/assets/state.json');
+    final res = await rootBundle.loadString(
+        'packages/pincode_country_state_city_pro/lib/assets/state.json');
     final data = jsonDecode(res) as List;
     _cachedStates = List<StateModel>.from(
       data.map((item) => StateModel.fromJson(item)),
@@ -43,15 +44,18 @@ class StateUtils {
     final states = await _loadStates();
 
     final res = states.where((stateModel) {
-      return stateModel.countryCode == countryCode && stateModel.isoCode == stateCode;
+      return stateModel.countryCode == countryCode &&
+          stateModel.isoCode == stateCode;
     }).toList();
 
     return res.isEmpty ? null : res.first;
   }
 
-  static Future<StateModel?> getMatchingState({required String stateName}) async {
+  static Future<StateModel?> getMatchingState(
+      {required String stateName}) async {
     final states = await _loadStates();
-    StateModel? matchedState = states.firstWhereOrNull((state) => state.name == stateName);
+    StateModel? matchedState =
+        states.firstWhereOrNull((state) => state.name == stateName);
     return matchedState;
   }
 }

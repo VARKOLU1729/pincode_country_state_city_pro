@@ -18,6 +18,13 @@ class _HomePageState extends State<HomePage> {
   AddressPickerController controller = AddressPickerController();
   GridType gridType = GridType.grid4x1;
 
+  @override
+  void initState()
+  {
+    super.initState();
+  }
+
+
   Widget toggleWidget(String text, bool isSelected) {
     return Container(
       decoration: BoxDecoration(

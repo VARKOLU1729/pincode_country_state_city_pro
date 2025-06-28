@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:pincode_country_state_city_pro/pincode_country_state_city_pro.dart';
+import 'package:pincode_country_state_city_pro/src/components/messenger.dart';
 import 'package:pincode_country_state_city_pro/src/models/address_response.dart';
 import 'package:pincode_country_state_city_pro/src/services/address_service.dart';
 import 'package:pincode_country_state_city_pro/src/utils/city_utils.dart';
@@ -34,10 +35,12 @@ class _PincodeFieldState extends State<PincodeField> {
   Future<void> updateCSCFromIndianApi(AddressResponse addressResponse) async {
     widget.controller.selectedState.value = addressResponse.data?.state;
     widget.controller.selectedCity.value = addressResponse.data?.city;
-    widget.controller.statesList.value = await StateUtils.getStatesOfCountry(widget.controller.selectedCountry.value!.isoCode!);
+    widget.controller.statesList.value = await StateUtils.getStatesOfCountry(
+        widget.controller.selectedCountry.value!.isoCode!);
     if (widget.controller.selectedState.value?.isoCode != null) {
-      widget.controller.citiesList.value =
-          await CityUtils.getStateCities(widget.controller.selectedCountry.value!.isoCode!, widget.controller.selectedState.value!.isoCode);
+      widget.controller.citiesList.value = await CityUtils.getStateCities(
+          widget.controller.selectedCountry.value!.isoCode!,
+          widget.controller.selectedState.value!.isoCode);
     }
   }
 
@@ -60,7 +63,7 @@ class _PincodeFieldState extends State<PincodeField> {
           borderSide: BorderSide(color: Colors.red),
           borderRadius: BorderRadius.all(Radius.circular(3.0)),
         ),
-        contentPadding: EdgeInsets.only(left: 16, top: 8, bottom: 8),
+        contentPadding: const EdgeInsets.only(left: 16, top: 8, bottom: 8),
         border: const OutlineInputBorder(),
         suffixIcon: isFetchingDataFromPincode
             ? const Center(
@@ -82,9 +85,18 @@ class _PincodeFieldState extends State<PincodeField> {
       onTapOutside: (_) {
         _pincodeFocusNode.unfocus();
       },
-      style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: Colors.black, fontFamily: "Inter"),
+      onTap: () {
+        if (widget.controller.selectedCountry.value == null) {
+          _pincodeFocusNode.unfocus();
+          showErrorSnackBar(context: context, content: "Please select country");
+        }
+      },
+      style: const TextStyle(
+          fontSize: 14,
+          fontWeight: FontWeight.w500,
+          color: Colors.black,
+          fontFamily: "Inter"),
       decoration: defaultInputDecoration,
-      // initialValue: address.pincode?.toString(),
       controller: widget.controller.pinCodeController,
       validator: (value) {
         return ValidatorUtils.validatePinCode(
@@ -94,7 +106,9 @@ class _PincodeFieldState extends State<PincodeField> {
       },
       onChanged: (val) async {
         val = val.trim();
-        if (val.length != widget.controller.postalCodeFormat?.format?.length) return;
+        if (val.length != widget.controller.postalCodeFormat?.format?.length) {
+          return;
+        }
         setState(() {
           isFetchingDataFromPincode = true;
         });
@@ -107,17 +121,22 @@ class _PincodeFieldState extends State<PincodeField> {
           return;
         }
         if (val.isNotEmpty) {
-          City? city = await CityUtils.getCityByPostalCode(postalCode: val, countryCode: widget.controller.selectedCountry.value!.isoCode!);
+          City? city = await CityUtils.getCityByPostalCode(
+              postalCode: val,
+              countryCode: widget.controller.selectedCountry.value!.isoCode!);
           if (city != null) {
             // updateCSCFromCity
             widget.controller.selectedCity.value = city;
             widget.controller.selectedState.value =
-                await StateUtils.getStateByCode(widget.controller.selectedCountry.value!.isoCode!, city.stateCode);
+                await StateUtils.getStateByCode(
+                    widget.controller.selectedCountry.value!.isoCode!,
+                    city.stateCode);
           }
           // If the generated pin code is 6 digits but doesn't match any known city (possibly due to geocoding inaccuracies),
           // then attempt to fetch the address using the Indian Postal API (free) as a fallback.
           else if (val.length == 6) {
-            AddressResponse addressResponse = await AddressService.getIndianAddress(pinCode: val.toString());
+            AddressResponse addressResponse =
+                await AddressService.getIndianAddress(pinCode: val.toString());
             if (addressResponse.statusCode == 0) {
               await updateCSCFromIndianApi(addressResponse);
             } else {
@@ -134,10 +153,12 @@ class _PincodeFieldState extends State<PincodeField> {
           });
         });
       },
-      keyboardType: PostalCodeFormatsUtils.getKeyboardTypeForPincodePattern(widget.controller.postalCodeFormat?.format),
+      keyboardType: PostalCodeFormatsUtils.getKeyboardTypeForPincodePattern(
+          widget.controller.postalCodeFormat?.format),
       inputFormatters: [
         FilteringTextInputFormatter.allow(RegExp(r'^[A-Za-z0-9-\s]+$')),
-        LengthLimitingTextInputFormatter(widget.controller.postalCodeFormat?.format?.length ?? 20),
+        LengthLimitingTextInputFormatter(
+            widget.controller.postalCodeFormat?.format?.length ?? 20),
       ],
     );
   }

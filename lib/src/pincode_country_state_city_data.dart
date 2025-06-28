@@ -34,12 +34,14 @@ Future<List<StateModel>> getStatesOfCountry({required String countryCode}) {
 }
 
 ///Get state from its isoCode
-Future<StateModel?> getStateByCode({required String stateCode, required String countryCode}) {
+Future<StateModel?> getStateByCode(
+    {required String stateCode, required String countryCode}) {
   return StateUtils.getStateByCode(countryCode, stateCode);
 }
 
 ///Get Matching State by Name
-Future<StateModel?> getMatchingStateByName({required String stateName, required String countryCode}) {
+Future<StateModel?> getMatchingStateByName(
+    {required String stateName, required String countryCode}) {
   return StateUtils.getMatchingState(stateName: stateName);
 }
 
@@ -56,7 +58,8 @@ Future<List<City>> getCitiesOfCountry({required String countryCode}) {
 }
 
 ///Get the list of cities of a state
-Future<List<City>> getCitiesOfState({required String countryCode, required String stateCode}) {
+Future<List<City>> getCitiesOfState(
+    {required String countryCode, required String stateCode}) {
   return CityUtils.getStateCities(countryCode, stateCode);
 }
 
@@ -73,21 +76,27 @@ Future<City?> getMatchingCityByName({required String cityName}) {
 //------POSTAL CODE APIS------
 
 ///Get State and City from postalCode and CountryCode(alpha-2 code)
-Future<AddressData?> getStateAndCityByPostalCode({required String postalCode, required String countryCode}) async {
-  City? city = await CityUtils.getCityByPostalCode(postalCode: postalCode, countryCode: countryCode);
+Future<AddressData?> getStateAndCityByPostalCode(
+    {required String postalCode, required String countryCode}) async {
+  City? city = await CityUtils.getCityByPostalCode(
+      postalCode: postalCode, countryCode: countryCode);
   StateModel? state;
   if (city != null) {
-    state = await getStateByCode(stateCode: city.stateCode, countryCode: countryCode);
+    state = await getStateByCode(
+        stateCode: city.stateCode, countryCode: countryCode);
   }
   return AddressData(state: state, city: city);
 }
 
 //------POSTAL CODE FORMAT APIS------
 
-Future<PostalCodeFormat?> getPostalFormatFromCountryCode({required String countryCode}) {
+Future<PostalCodeFormat?> getPostalFormatFromCountryCode(
+    {required String countryCode}) {
   return PostalCodeFormatsUtils.getPostalCodeFormatByCountryCode(countryCode);
 }
 
-TextInputType getKeyboardTypeForPincodeFormat({required PostalCodeFormat postalCodeFormat}) {
-  return PostalCodeFormatsUtils.getKeyboardTypeForPincodePattern(postalCodeFormat.format);
+TextInputType getKeyboardTypeForPincodeFormat(
+    {required PostalCodeFormat postalCodeFormat}) {
+  return PostalCodeFormatsUtils.getKeyboardTypeForPincodePattern(
+      postalCodeFormat.format);
 }

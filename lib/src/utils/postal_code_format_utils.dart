@@ -10,7 +10,8 @@ class PostalCodeFormatsUtils {
     if (_cachedPostalCodeFormats.isNotEmpty) {
       return _cachedPostalCodeFormats;
     }
-    final res = await rootBundle.loadString('packages/pincode_country_state_city_pro/lib/assets/postal_code_formats.json');
+    final res = await rootBundle.loadString(
+        'packages/pincode_country_state_city_pro/lib/assets/postal_code_formats.json');
     final data = jsonDecode(res) as List;
     _cachedPostalCodeFormats = List<PostalCodeFormat>.from(
       data.map((item) => PostalCodeFormat(
@@ -22,9 +23,11 @@ class PostalCodeFormatsUtils {
     return _cachedPostalCodeFormats;
   }
 
-  static Future<PostalCodeFormat?> getPostalCodeFormatByCountryCode(String countryCode) async {
+  static Future<PostalCodeFormat?> getPostalCodeFormatByCountryCode(
+      String countryCode) async {
     final formats = await _loadPostalCodeFormats();
-    final res = formats.firstWhere((format) => format.countryCode == countryCode);
+    final res =
+        formats.firstWhere((format) => format.countryCode == countryCode);
     return res;
   }
 

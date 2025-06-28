@@ -10,7 +10,8 @@ class CityUtils {
     if (_cachedCities.isNotEmpty) {
       return _cachedCities;
     }
-    final res = await rootBundle.loadString('packages/pincode_country_state_city_pro/lib/assets/city_with_postal_codes.json');
+    final res = await rootBundle.loadString(
+        'packages/pincode_country_state_city_pro/lib/assets/city_with_postal_codes.json');
     final data = jsonDecode(res) as List;
     _cachedCities = List<City>.from(
       data.map((item) => City.fromJson(item)),
@@ -23,7 +24,8 @@ class CityUtils {
   }
 
   /// Get the list of states that belongs to a state by the state ISO CODE and the country ISO CODE
-  static Future<List<City>> getStateCities(String countryCode, String stateCode) async {
+  static Future<List<City>> getStateCities(
+      String countryCode, String stateCode) async {
     final cities = await _loadCities();
 
     final res = cities.where((city) {
@@ -54,13 +56,16 @@ class CityUtils {
 
   static Future<City?> getMatchingCity({required String cityName}) async {
     final cities = await _loadCities();
-    City? matchedCity = cities.firstWhereOrNull((city) => city.name == cityName);
+    City? matchedCity =
+        cities.firstWhereOrNull((city) => city.name == cityName);
     return matchedCity;
   }
 
-  static Future<City?> getCityByPostalCode({required String postalCode, required String countryCode}) async {
+  static Future<City?> getCityByPostalCode(
+      {required String postalCode, required String countryCode}) async {
     final cities = await _loadCities();
-    City? matchedCity = cities.firstWhereOrNull((city) => city.postalCode == postalCode && city.countryCode == countryCode);
+    City? matchedCity = cities.firstWhereOrNull((city) =>
+        city.postalCode == postalCode && city.countryCode == countryCode);
     return matchedCity;
   }
 }
