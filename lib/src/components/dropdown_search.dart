@@ -1,8 +1,7 @@
 import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/material.dart';
 import 'package:pincode_country_state_city_pro/pincode_country_state_city_pro.dart';
-import 'package:pincode_country_state_city_pro/src/components/country_flag_widget.dart';
-import 'package:pincode_country_state_city_pro/src/components/drop_down_item_type.dart';
+import 'package:pincode_country_state_city_pro/src/widgets/country_flag_widget.dart';
 
 Widget dropDownSearch<T>({
   required Key? key,

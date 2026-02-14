@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
-void showErrorSnackBar(
-    {required BuildContext context, required String content}) {
+void showErrorSnackBar({
+  required BuildContext context,
+  required String content,
+}) {
   ScaffoldMessenger.of(context).clearSnackBars();
   ScaffoldMessenger.of(context).showSnackBar(
     SnackBar(

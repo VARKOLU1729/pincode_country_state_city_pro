@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pincode_country_state_city_pro/pincode_country_state_city_pro.dart';
 import 'package:pincode_country_state_city_pro/src/utils/postal_code_format_utils.dart';
 import 'package:pincode_country_state_city_pro/src/utils/state_utils.dart';
-import 'package:pincode_country_state_city_pro/src/widgets/dropdown_search.dart';
+import 'package:pincode_country_state_city_pro/src/components/dropdown_search.dart';
 
 class CountryPicker extends StatelessWidget {
   final ValueChanged<Country?>? onChanged;

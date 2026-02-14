@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pincode_country_state_city_pro/pincode_country_state_city_pro.dart';
 import 'package:pincode_country_state_city_pro/src/components/messenger.dart';
-import 'package:pincode_country_state_city_pro/src/widgets/dropdown_search.dart';
+import 'package:pincode_country_state_city_pro/src/components/dropdown_search.dart';
 
 class StatePicker extends StatelessWidget {
   final ValueChanged<StateModel?>? onChanged;
