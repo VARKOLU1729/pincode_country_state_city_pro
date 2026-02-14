@@ -4,8 +4,9 @@ A complete Flutter package to pick and validate **Country → State → City** u
 
 ✅ Built-in country/state/city dataset  
 ✅ Auto-fill from pincode  
-✅ Supports layout customization  
-✅ Individual utilities for custom use
+✅ Typeahead search for large lists
+✅ Customizable layouts & UI widgets
+✅ Utility APIs for custom integrations
 
 > Perfect for apps that collect addresses: e-commerce, delivery, registration, checkout, etc.
 
@@ -18,6 +19,7 @@ A complete Flutter package to pick and validate **Country → State → City** u
 - 🧩 Customizable UI layouts (4x1 column or 2x2 grid)
 - 🎯 RegEx-based validation for postal codes by country
 - 🔧 Exposed utility APIs if you want to use your own UI
+- ⚡  Fast, offline lookups with no runtime API calls
 
 ---
 
@@ -27,7 +29,7 @@ A complete Flutter package to pick and validate **Country → State → City** u
 
 ```yaml
 dependencies:
-  pincode_country_state_city_pro: ^1.0.0
+  pincode_country_state_city_pro: ^0.1.0
 ```
 
 ### 2. Usage

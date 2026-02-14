@@ -7,7 +7,7 @@ import 'package:pincode_country_state_city_pro/src/utils/city_utils.dart';
 import 'package:pincode_country_state_city_pro/src/utils/state_utils.dart';
 
 class AddressService {
-  static const String FILE_NAME = "address_service";
+  static const String fileName = "address_service";
   static Future<AddressResponse> getIndianAddress(
       {required String pinCode}) async {
     String url = 'https://api.postalpincode.in/pincode/$pinCode';

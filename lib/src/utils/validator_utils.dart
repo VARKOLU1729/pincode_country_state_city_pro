@@ -1,4 +1,3 @@
-import 'package:pincode_country_state_city_pro/src/constants.dart';
 import 'package:pincode_country_state_city_pro/src/models/postal_code_format.dart';
 
 class ValidatorUtils {
@@ -9,8 +8,8 @@ class ValidatorUtils {
 
     pincode = pincode.trim();
 
-    if (pincode.length > POSTAL_CODE_MAX_LENGTH) {
-      return "PinCode exceeds $POSTAL_CODE_MAX_LENGTH digits";
+    if (pincode.length > 50) {
+      return "PinCode exceeds 50 digits";
     }
 
     if (postalCodeFormat?.format?.length != null &&
