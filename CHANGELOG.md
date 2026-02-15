@@ -1,3 +1,8 @@
+## 0.1.1
+
+- update dependencies to their major versions
+- update package description
+
 ## 0.1.0
 
 - Initial release

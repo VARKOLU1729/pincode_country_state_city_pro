@@ -1,6 +1,6 @@
 # 📦 pincode_address_picker
 
-A complete Flutter package to pick and validate **Country → State → City** using dropdowns, or auto-fill them by entering a **pincode/postal code**.
+A complete Flutter package to pick and validate **Country → State → City** using dropdowns or typeaheads, or auto-fill them by entering a **pincode/postal code**.
 
 ✅ Built-in country/state/city dataset  
 ✅ Auto-fill from pincode  

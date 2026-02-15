@@ -17,77 +17,88 @@ Widget dropDownSearch<T>({
   Future<bool?> Function(T?)? onBeforePopupOpening,
 }) {
   return DropdownSearch<T>(
-    key: key,
-    popupProps: PopupProps.dialog(
-        onDismissed: () {
-          FocusScope.of(context).requestFocus(FocusNode());
-        },
-        showSearchBox: true,
-        isFilterOnline: true,
-        showSelectedItems: true,
-        searchFieldProps: TextFieldProps(
-          decoration: searchFieldDecoration.copyWith(hintText: "Search ${dropDownItemType.name}"),
-          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
-          autofocus: true,
-        ),
-        itemBuilder: (context, item, b) {
-          return Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 16.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                if (showCountryFlag && dropDownItemType == DropDownItemType.country && item is Country && item.flagUri != null)
-                  countryFlagWidget(item.flagUri!),
-                Text(
-                  itemLabelBuilder(item),
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 1,
+          key: key,
+          popupProps: PopupProps.dialog(
+            onDismissed: () {
+              FocusScope.of(context).requestFocus(FocusNode());
+            },
+            showSearchBox: true,
+            showSelectedItems: true,
+            searchFieldProps: TextFieldProps(
+              decoration: searchFieldDecoration.copyWith(hintText: "Search ${dropDownItemType.name}"),
+              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+              autofocus: true,
+            ),
+            loadingBuilder: (_, __) {
+              return const Center(
+                child: SizedBox(
+                  height: 50,
+                  width: 50,
+                  child: CircularProgressIndicator(
+                    color: Colors.blue,
+                  ),
+                ),
+              );
+            },
+            itemBuilder: (context, item, _, __) {
+              return Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 16.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    if (showCountryFlag && dropDownItemType == DropDownItemType.country && item is Country && item.flagUri != null)
+                      countryFlagWidget(item.flagUri!),
+                    Text(
+                      itemLabelBuilder(item),
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 1,
+                      style: const TextStyle(fontFamily: "Inter", color: Color(0xff5A6478), fontSize: 16, fontWeight: FontWeight.w500),
+                    ),
+                  ],
+                ),
+              );
+            },
+            emptyBuilder: (context, str) {
+              return Center(
+                child: Text(
+                  "No ${dropDownItemType.name} found with '$str'.",
                   style: const TextStyle(fontFamily: "Inter", color: Color(0xff5A6478), fontSize: 16, fontWeight: FontWeight.w500),
                 ),
-              ],
-            ),
-          );
-        },
-        emptyBuilder: (context, str) {
-          return Center(
-            child: Text(
-              "No ${dropDownItemType.name} found with '$str'.",
-              style: const TextStyle(fontFamily: "Inter", color: Color(0xff5A6478), fontSize: 16, fontWeight: FontWeight.w500),
-            ),
-          );
-        },
-        favoriteItemProps: const FavoriteItemProps(showFavoriteItems: true)),
-    items: items,
-    compareFn: (countryValue, savedCountry) => true,
-    itemAsString: itemLabelBuilder,
-    onChanged: onChanged,
-    onSaved: onSaved,
-    validator: validator,
-    onBeforePopupOpening: onBeforePopupOpening,
-    dropdownBuilder: (context, value) {
-      return Row(
-        mainAxisSize: MainAxisSize.min,
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          if (showCountryFlag && dropDownItemType == DropDownItemType.country && value is Country && value.flagUri != null)
-            countryFlagWidget(value.flagUri!),
-          Text(
-            value != null ? itemLabelBuilder(value) : "Select ${dropDownItemType.name}",
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
-            style: TextStyle(
-              fontSize: 16,
-              fontFamily: "Inter",
-              color: value != null ? Colors.black : Colors.black.withOpacity(0.75),
-              fontWeight: value != null ? FontWeight.w500 : null,
-            ),
+              );
+            },
           ),
-        ],
-      );
-    },
-    selectedItem: selectedItem,
-    clearButtonProps: const ClearButtonProps(isVisible: false),
-    dropdownDecoratorProps: dropDownDecoratorProps,
+          items: (_, __) {
+            return items;
+          },
+          compareFn: (countryValue, savedCountry) => true,
+          itemAsString: itemLabelBuilder,
+          onChanged: onChanged,
+          onSaved: onSaved,
+          validator: validator,
+          onBeforePopupOpening: onBeforePopupOpening,
+          dropdownBuilder: (context, value) {
+            return Row(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                if (showCountryFlag && dropDownItemType == DropDownItemType.country && value is Country && value.flagUri != null)
+                  countryFlagWidget(value.flagUri!),
+                Text(
+                  value != null ? itemLabelBuilder(value) : "Select ${dropDownItemType.name}",
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontFamily: "Inter",
+                    color: value != null ? Colors.black : Colors.black.withAlpha((0.75 * 255).round()),
+                    fontWeight: value != null ? FontWeight.w500 : null,
+                  ),
+                ),
+              ],
+            );
+          },
+          selectedItem: selectedItem,
+          decoratorProps: dropDownDecoratorProps,
   );
 }
 
@@ -106,7 +117,7 @@ InputDecoration searchFieldDecoration = const InputDecoration(
 );
 
 DropDownDecoratorProps dropDownDecoratorProps = const DropDownDecoratorProps(
-  dropdownSearchDecoration: InputDecoration(
+  decoration: InputDecoration(
     hoverColor: Colors.transparent,
     filled: true,
     fillColor: Color(0xffFDFBF9),
