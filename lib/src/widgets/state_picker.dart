@@ -9,6 +9,7 @@ class StatePicker extends StatelessWidget {
   final String Function(StateModel)? itemLabelBuilder;
   final String? Function(StateModel?)? validator;
   final AddressPickerController controller;
+  final SearchWidgetType searchWidgetType;
   const StatePicker({
     super.key,
     required this.controller,
@@ -16,55 +17,58 @@ class StatePicker extends StatelessWidget {
     this.onSaved,
     this.validator,
     this.itemLabelBuilder,
+    this.searchWidgetType = SearchWidgetType.dropDownSearch,
   });
 
   @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder(
-        valueListenable: controller.statesList,
-        builder: (context, value1, _) {
-          return ValueListenableBuilder(
-              valueListenable: controller.selectedState,
-              builder: (context, value2, _) {
-                return dropDownSearch<StateModel>(
-                    key: controller.stateDropdownKey,
-                    dropDownItemType: DropDownItemType.state,
-                    context: context,
-                    items: value1,
-                    itemLabelBuilder:
-                        itemLabelBuilder ?? (StateModel state) => state.name,
-                    onChanged: (StateModel? state) async {
-                      controller.selectedState.value = state;
+      valueListenable: controller.statesList,
+      builder: (context, value1, _) {
+        return ValueListenableBuilder(
+          valueListenable: controller.selectedState,
+          builder: (context, value2, _) {
+            return dropDownSearch<StateModel>(
+              key: controller.stateDropdownKey,
+              dropDownItemType: DropDownItemType.state,
+              context: context,
+              items: value1,
+              itemLabelBuilder: itemLabelBuilder ?? (StateModel state) => state.name,
+              onChanged: (StateModel? state) async {
+                controller.selectedState.value = state;
 
-                      controller.selectedCity.value = null;
-                      controller.pinCodeController.clear();
+                controller.selectedCity.value = null;
+                controller.pinCodeController.clear();
 
-                      controller.cityDropdownKey.currentState?.clear();
+                controller.cityDropdownKey.currentState?.clear();
 
-                      if (controller.selectedCountry.value?.isoCode != null &&
-                          state?.isoCode != null) {
-                        controller.citiesList.value = await getCitiesOfState(
-                          countryCode:
-                              controller.selectedCountry.value!.isoCode!,
-                          stateCode: state!.isoCode,
-                        );
-                      }
+                if (controller.selectedCountry.value?.isoCode != null && state?.isoCode != null) {
+                  controller.citiesList.value = await getCitiesOfState(
+                    countryCode: controller.selectedCountry.value!.isoCode!,
+                    stateCode: state!.isoCode,
+                  );
+                }
 
-                      if (onChanged != null) onChanged!(state);
-                    },
-                    onSaved: onSaved,
-                    validator: validator,
-                    selectedItem: value2,
-                    onBeforePopupOpening: (_) async {
-                      if (controller.selectedCountry.value == null) {
-                        showErrorSnackBar(
-                            context: context,
-                            content: "Please choose a country");
-                        return false;
-                      }
-                      return true;
-                    });
-              });
-        });
+                if (onChanged != null) onChanged!(state);
+              },
+              onSaved: onSaved,
+              validator: validator,
+              selectedItem: value2,
+              onBeforePopupOpening: (_) async {
+                if (controller.selectedCountry.value == null) {
+                  showErrorSnackBar(context: context, content: "Please choose a country");
+                  return false;
+                }
+                return true;
+              },
+              searchWidgetType: searchWidgetType,
+              suggestionsCallBack: (String searchQuery) {
+                return value1.where((item) => item.name.toLowerCase().startsWith(searchQuery.toLowerCase())).toList();
+              },
+            );
+          },
+        );
+      },
+    );
   }
 }

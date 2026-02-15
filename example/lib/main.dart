@@ -80,6 +80,7 @@ class _HomePageState extends State<HomePage> {
           PincodeCountryStateCityPicker(
             controller: controller,
             gridType: gridType,
+            searchWidgetType: SearchWidgetType.typeAheadSearch,
           ),
         ],
       ),

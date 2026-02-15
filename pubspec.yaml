@@ -1,8 +1,9 @@
 name: pincode_country_state_city_pro
 description: >
-  Offline-first Flutter package providing country, state, and city dropdowns and typeahead search,
-  pincode-based auto-fill, and country-specific pincode format validation.
-version: 0.1.0
+  Offline-first Flutter address picker package with country, state, city dropdowns,
+  typeahead search, pincode/postal code auto-fill, and country-specific postal code validation.
+  Works without runtime APIs. Supports e-commerce, delivery, checkout, and registration flows.
+version: 0.1.1
 homepage: https://github.com/VARKOLU1729/pincode_country_state_city_pro
 repository: https://github.com/VARKOLU1729/pincode_country_state_city_pro
 issue_tracker: https://github.com/VARKOLU1729/pincode_country_state_city_pro/issues
@@ -13,7 +14,7 @@ environment:
 
 dependencies:
   collection: ^1.18.0
-  dropdown_search: ^5.0.6
+  dropdown_search: ^6.0.2
   flutter:
     sdk: flutter
   http: ^1.4.0
@@ -63,3 +64,11 @@ flutter:
   #
   # For details regarding fonts in packages, see
   # https://flutter.dev/custom-fonts/#from-packages
+
+topics:
+  - flutter
+  - address
+  - pincode
+  - postal-code
+  - autofill
+

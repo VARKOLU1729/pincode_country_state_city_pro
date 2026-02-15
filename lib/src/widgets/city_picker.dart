@@ -11,6 +11,7 @@ class CityPicker extends StatelessWidget {
   final String? Function(City?)? validator;
   final GlobalKey<DropdownSearchState<City>>? dropDownSearchkey;
   final AddressPickerController controller;
+  final SearchWidgetType searchWidgetType;
   const CityPicker({
     super.key,
     required this.controller,
@@ -19,41 +20,47 @@ class CityPicker extends StatelessWidget {
     this.onSaved,
     this.validator,
     this.itemLabelBuilder,
+    this.searchWidgetType = SearchWidgetType.dropDownSearch,
   });
 
   @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder(
-        valueListenable: controller.citiesList,
-        builder: (context, value1, _) {
-          return ValueListenableBuilder(
-              valueListenable: controller.selectedCity,
-              builder: (context, value2, _) {
-                return dropDownSearch<City>(
-                    key: controller.cityDropdownKey,
-                    dropDownItemType: DropDownItemType.city,
-                    context: context,
-                    items: value1,
-                    itemLabelBuilder:
-                        itemLabelBuilder ?? (City city) => city.name,
-                    onChanged: (City? city) {
-                      controller.selectedCity.value = city;
+      valueListenable: controller.citiesList,
+      builder: (context, value1, _) {
+        return ValueListenableBuilder(
+          valueListenable: controller.selectedCity,
+          builder: (context, value2, _) {
+            return dropDownSearch<City>(
+              key: controller.cityDropdownKey,
+              dropDownItemType: DropDownItemType.city,
+              context: context,
+              items: value1,
+              itemLabelBuilder: itemLabelBuilder ?? (City city) => city.name,
+              onChanged: (City? city) {
+                controller.selectedCity.value = city;
 
-                      controller.pinCodeController.clear();
-                      if (onChanged != null) onChanged!(city);
-                    },
-                    onSaved: onSaved,
-                    validator: validator,
-                    selectedItem: value2,
-                    onBeforePopupOpening: (_) async {
-                      if (controller.selectedState.value == null) {
-                        showErrorSnackBar(
-                            context: context, content: "Please choose a state");
-                        return false;
-                      }
-                      return true;
-                    });
-              });
-        });
+                controller.pinCodeController.clear();
+                if (onChanged != null) onChanged!(city);
+              },
+              onSaved: onSaved,
+              validator: validator,
+              selectedItem: value2,
+              onBeforePopupOpening: (_) async {
+                if (controller.selectedState.value == null) {
+                  showErrorSnackBar(context: context, content: "Please choose a state");
+                  return false;
+                }
+                return true;
+              },
+              searchWidgetType: searchWidgetType,
+              suggestionsCallBack: (String searchQuery) {
+                return value1.where((item) => item.name.toLowerCase().startsWith(searchQuery.toLowerCase())).toList();
+              },
+            );
+          },
+        );
+      },
+    );
   }
 }

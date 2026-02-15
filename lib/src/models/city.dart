@@ -4,7 +4,6 @@ class City {
   final String stateCode;
   final String? latitude;
   final String? longitude;
-  //the postal code for cities is generated using geocoding based on lat and long of cities- 04-06-2025
   final String postalCode;
   late final String isoCode;
 

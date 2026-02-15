@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 class CustomDropDownTypeAheadSearch<T> extends StatefulWidget {
   const CustomDropDownTypeAheadSearch({
     super.key,
-
     this.searchQueryController,
     this.suggestionsController,
     required this.suggestionsCallback,
@@ -104,7 +103,7 @@ class _CustomDropDownTypeAheadSearchState<T> extends State<CustomDropDownTypeAhe
     searchQueryController.addListener(() async {
       debouncer.run(
         () async {
-          if (searchQueryController.text.isNotEmpty) {
+          if (searchQueryController.text.length >= 3) {
             if (focusNode.hasFocus) {
               overlayPortalController.show();
             }

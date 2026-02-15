@@ -3,15 +3,24 @@ import 'package:pincode_country_state_city_pro/pincode_country_state_city_pro.da
 
 enum GridType { grid2x2, grid4x1 }
 
+enum SearchWidgetType {
+  dropDownSearch,
+  typeAheadSearch;
+
+  bool get isDropDownSearch => this == SearchWidgetType.dropDownSearch;
+}
+
 class PincodeCountryStateCityPicker extends StatefulWidget {
   final AddressPickerController controller;
   final GridType gridType;
   final bool showCountryFlag;
+  final SearchWidgetType searchWidgetType;
   const PincodeCountryStateCityPicker({
     super.key,
     required this.controller,
     this.gridType = GridType.grid4x1,
     this.showCountryFlag = true,
+    this.searchWidgetType = SearchWidgetType.dropDownSearch,
   });
 
   @override
@@ -59,14 +68,33 @@ class _PincodeCountryStateCityPickerState extends State<PincodeCountryStateCityP
                   children: [
                     const SizedBox(height: 20),
                     getWidget(
-                        "Country",
-                        CountryPicker(
-                          controller: widget.controller,
-                          showCountryFlag: widget.showCountryFlag,
-                        )),
-                    getWidget("Pincode", PincodeField(controller: widget.controller)),
-                    getWidget("State", StatePicker(controller: widget.controller)),
-                    getWidget("City", CityPicker(controller: widget.controller)),
+                      "Country",
+                      CountryPicker(
+                        controller: widget.controller,
+                        showCountryFlag: widget.showCountryFlag,
+                        searchWidgetType: widget.searchWidgetType,
+                      ),
+                    ),
+                    getWidget(
+                      "Pincode",
+                      PincodeField(
+                        controller: widget.controller,
+                      ),
+                    ),
+                    getWidget(
+                      "State",
+                      StatePicker(
+                        controller: widget.controller,
+                        searchWidgetType: widget.searchWidgetType,
+                      ),
+                    ),
+                    getWidget(
+                      "City",
+                      CityPicker(
+                        controller: widget.controller,
+                        searchWidgetType: widget.searchWidgetType,
+                      ),
+                    ),
                   ],
                 )
               : SizedBox(
