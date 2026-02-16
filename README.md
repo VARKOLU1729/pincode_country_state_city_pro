@@ -44,7 +44,7 @@ PincodeCountryStateCityPicker(
       <img 
         src="screenshots/cscp_1.png" 
         width="300"
-        height="300"
+        height="600"
         alt="Pincode Address Picker Image"
       />
     </td>
@@ -52,7 +52,7 @@ PincodeCountryStateCityPicker(
       <img 
         src="https://github.com/VARKOLU1729/pincode_country_state_city_pro/blob/v0.1.2/demos/dropdowns_demo.gif" 
         width="300"
-        height="300"
+        height="600"
         alt="Pincode Address Picker Demo"
       />
     </td>
