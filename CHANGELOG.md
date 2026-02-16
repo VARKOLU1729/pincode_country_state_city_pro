@@ -1,3 +1,7 @@
+## 0.1.2
+
+- Internal optimisations
+
 ## 0.1.1
 
 - update dependencies to their major versions
