@@ -64,7 +64,7 @@ Future<List<City>> getCitiesOfState(
 }
 
 ///Get state from its isoCode
-Future<City?> getCityByCode({required cityCode}) {
+Future<City?> getCityByCode({required String cityCode}) {
   return CityUtils.getCityByCode(cityCode);
 }
 

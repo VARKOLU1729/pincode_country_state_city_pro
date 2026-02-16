@@ -1,7 +1,7 @@
 import 'package:pincode_country_state_city_pro/src/models/postal_code_format.dart';
 
 class ValidatorUtils {
-  static validatePinCode(String? pincode, PostalCodeFormat? postalCodeFormat) {
+  static String? validatePinCode(String? pincode, PostalCodeFormat? postalCodeFormat) {
     if (pincode == null || pincode.trim().isEmpty) {
       return "pincode can't be empty";
     }
@@ -12,8 +12,7 @@ class ValidatorUtils {
       return "PinCode exceeds 50 digits";
     }
 
-    if (postalCodeFormat?.format?.length != null &&
-        postalCodeFormat?.format?.length != pincode.length) {
+    if (postalCodeFormat?.format?.length != null && postalCodeFormat?.format?.length != pincode.length) {
       return "Please enter pincode of size ${postalCodeFormat?.format?.length}";
     }
 
