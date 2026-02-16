@@ -61,7 +61,8 @@ class CountryPicker extends StatelessWidget {
               selectedItem: value2,
               searchWidgetType: searchWidgetType,
               suggestionsCallBack: (String searchQuery) {
-                return value1.where((item) => item.name.toLowerCase().startsWith(searchQuery.toLowerCase())).toList();
+                final items = value1.where((item) => item.name.toLowerCase().startsWith(searchQuery.toLowerCase())).toList();
+                return items;
               },
             );
           },

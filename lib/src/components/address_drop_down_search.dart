@@ -4,6 +4,8 @@ import 'package:pincode_country_state_city_pro/pincode_country_state_city_pro.da
 import 'package:pincode_country_state_city_pro/src/components/CustomTypeAheadField/typeahead_types.dart';
 import 'package:pincode_country_state_city_pro/src/widgets/country_flag_widget.dart';
 
+
+
 Widget dropDownSearch<T>({
   required Key? key,
   required BuildContext context,
@@ -19,9 +21,8 @@ Widget dropDownSearch<T>({
   required SearchWidgetType searchWidgetType,
   required SuggestionsCallback<T> suggestionsCallBack,
 }) {
-  final focusNode = FocusNode();
-  return searchWidgetType.isDropDownSearch
-      ? DropdownSearch<T>(
+
+  return DropdownSearch<T>(
           key: key,
           popupProps: PopupProps.dialog(
             onDismissed: () {
@@ -104,53 +105,6 @@ Widget dropDownSearch<T>({
           },
           selectedItem: selectedItem,
           decoratorProps: dropDownDecoratorProps,
-        )
-      : CustomDropDownTypeAheadSearch<T>(
-          focusNode: focusNode,
-          suggestionsCallback: suggestionsCallBack,
-          textFieldBuilder: (context, controller, focusNode){
-            final value = controller.value;
-            return Text(
-              value != null ? itemLabelBuilder(value) : "Select ${dropDownItemType.name}",
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-              style: TextStyle(
-                fontSize: 16,
-                fontFamily: "Inter",
-                color: value != null ? Colors.black : Colors.black.withAlpha((0.75 * 255).round()),
-                fontWeight: value != null ? FontWeight.w500 : null,
-              ),
-            );
-          },
-          suggestionsItemBuilder: (context, value) {
-            return Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  if (showCountryFlag && dropDownItemType == DropDownItemType.country && value is Country && value.flagUri != null)
-                    countryFlagWidget(value.flagUri!),
-                  Text(
-                    value != null ? itemLabelBuilder(value) : "Select ${dropDownItemType.name}",
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontFamily: "Inter",
-                      color: value != null ? Colors.black : Colors.black.withAlpha((0.75 * 255).round()),
-                      fontWeight: value != null ? FontWeight.w500 : null,
-                    ),
-                  ),
-                ],
-              ),
-            );
-          },
-          constraints: BoxConstraints(),
-          onSelected: (context, t) {
-            onChanged?.call(t);
-            focusNode.unfocus();
-          },
         );
 }
 
