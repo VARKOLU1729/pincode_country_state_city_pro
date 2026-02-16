@@ -50,7 +50,7 @@ PincodeCountryStateCityPicker(
     </td>
     <td>
       <img 
-        src="https://github.com/VARKOLU1729/pincode_country_state_city_pro/blob/main/demos/dropdowns_demo.gif" 
+        src="https://github.com/VARKOLU1729/pincode_country_state_city_pro/blob/v0.1.2/demos/dropdowns_demo.gif" 
         width="300"
         height="300"
         alt="Pincode Address Picker Demo"
