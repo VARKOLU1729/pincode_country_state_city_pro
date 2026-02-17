@@ -2,12 +2,6 @@
 
 A complete Flutter package to pick and validate **Country → State → City** using dropdowns or typeaheads, or auto-fill them by entering a **pincode/postal code**.
 
-✅ Built-in country/state/city dataset  
-✅ Auto-fill from pincode  
-✅ Typeahead search for large lists
-✅ Customizable layouts & UI widgets
-✅ Utility APIs for custom integrations
-
 > Perfect for apps that collect addresses: e-commerce, delivery, registration, checkout, etc.
 
 ---
@@ -44,7 +38,28 @@ PincodeCountryStateCityPicker(
   showCountryFlag: true //show the country flag
 )
 ```
-<img src="screenshots/cscp_1.png" alt="My Image" width="300" height="600" />
+<table>
+  <tr>
+    <td>
+      <img 
+        src="screenshots/cscp_1.png" 
+        width="300"
+        height="600"
+        alt="Pincode Address Picker Image"
+      />
+    </td>
+    <td>
+      <img 
+        src="https://github.com/VARKOLU1729/pincode_country_state_city_pro/blob/v0.1.2/demos/dropdowns_demo.gif" 
+        width="300"
+        height="600"
+        alt="Pincode Address Picker Demo"
+      />
+    </td>
+  </tr>
+</table>
+
+
 
 ## 🖼 Layout Options
 #### Support two pre-defined layouts:

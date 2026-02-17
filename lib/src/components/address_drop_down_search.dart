@@ -1,10 +1,7 @@
 import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/material.dart';
 import 'package:pincode_country_state_city_pro/pincode_country_state_city_pro.dart';
-import 'package:pincode_country_state_city_pro/src/components/CustomTypeAheadField/typeahead_types.dart';
 import 'package:pincode_country_state_city_pro/src/widgets/country_flag_widget.dart';
-
-
 
 Widget dropDownSearch<T>({
   required Key? key,
@@ -18,94 +15,93 @@ Widget dropDownSearch<T>({
   required DropDownItemType dropDownItemType,
   bool showCountryFlag = false,
   Future<bool?> Function(T?)? onBeforePopupOpening,
-  required SearchWidgetType searchWidgetType,
-  required SuggestionsCallback<T> suggestionsCallBack,
 }) {
-
   return DropdownSearch<T>(
-          key: key,
-          popupProps: PopupProps.dialog(
-            onDismissed: () {
-              FocusScope.of(context).requestFocus(FocusNode());
-            },
-            showSearchBox: true,
-            showSelectedItems: true,
-            searchFieldProps: TextFieldProps(
-              decoration: searchFieldDecoration.copyWith(hintText: "Search ${dropDownItemType.name}"),
-              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
-              autofocus: true,
+    key: key,
+    popupProps: PopupProps.dialog(
+      onDismissed: () {
+        FocusScope.of(context).requestFocus(FocusNode());
+      },
+      showSearchBox: true,
+      showSelectedItems: true,
+      searchFieldProps: TextFieldProps(
+        decoration: searchFieldDecoration.copyWith(hintText: "Search ${dropDownItemType.name}"),
+        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+        autofocus: true,
+      ),
+      loadingBuilder: (_, __) {
+        return const Center(
+          child: SizedBox(
+            height: 50,
+            width: 50,
+            child: CircularProgressIndicator(
+              color: Colors.blue,
             ),
-            loadingBuilder: (_, __) {
-              return const Center(
-                child: SizedBox(
-                  height: 50,
-                  width: 50,
-                  child: CircularProgressIndicator(
-                    color: Colors.blue,
-                  ),
-                ),
-              );
-            },
-            itemBuilder: (context, item, _, __) {
-              return Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 16.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    if (showCountryFlag && dropDownItemType == DropDownItemType.country && item is Country && item.flagUri != null)
-                      countryFlagWidget(item.flagUri!),
-                    Text(
-                      itemLabelBuilder(item),
-                      overflow: TextOverflow.ellipsis,
-                      maxLines: 1,
-                      style: const TextStyle(fontFamily: "Inter", color: Color(0xff5A6478), fontSize: 16, fontWeight: FontWeight.w500),
-                    ),
-                  ],
-                ),
-              );
-            },
-            emptyBuilder: (context, str) {
-              return Center(
+          ),
+        );
+      },
+      itemBuilder: (context, item, _, __) {
+        return Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 16.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              if (showCountryFlag && dropDownItemType == DropDownItemType.country && item is Country && item.flagUri != null)
+                countryFlagWidget(item.flagUri!),
+              Expanded(
                 child: Text(
-                  "No ${dropDownItemType.name} found with '$str'.",
+                  itemLabelBuilder(item),
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 1,
                   style: const TextStyle(fontFamily: "Inter", color: Color(0xff5A6478), fontSize: 16, fontWeight: FontWeight.w500),
                 ),
-              );
-            },
+              ),
+            ],
           ),
-          items: (_, __) {
-            return items;
-          },
-          compareFn: (countryValue, savedCountry) => true,
-          itemAsString: itemLabelBuilder,
-          onChanged: onChanged,
-          onSaved: onSaved,
-          validator: validator,
-          onBeforePopupOpening: onBeforePopupOpening,
-          dropdownBuilder: (context, value) {
-            return Row(
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                if (showCountryFlag && dropDownItemType == DropDownItemType.country && value is Country && value.flagUri != null)
-                  countryFlagWidget(value.flagUri!),
-                Text(
-                  value != null ? itemLabelBuilder(value) : "Select ${dropDownItemType.name}",
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontFamily: "Inter",
-                    color: value != null ? Colors.black : Colors.black.withAlpha((0.75 * 255).round()),
-                    fontWeight: value != null ? FontWeight.w500 : null,
-                  ),
-                ),
-              ],
-            );
-          },
-          selectedItem: selectedItem,
-          decoratorProps: dropDownDecoratorProps,
         );
+      },
+      emptyBuilder: (context, str) {
+        return Center(
+          child: Text(
+            "No ${dropDownItemType.name} found with '$str'.",
+            style: const TextStyle(fontFamily: "Inter", color: Color(0xff5A6478), fontSize: 16, fontWeight: FontWeight.w500),
+          ),
+        );
+      },
+    ),
+    items: (_, __) {
+      return items;
+    },
+    compareFn: (countryValue, savedCountry) => true,
+    itemAsString: itemLabelBuilder,
+    onChanged: onChanged,
+    onSaved: onSaved,
+    validator: validator,
+    onBeforePopupOpening: onBeforePopupOpening,
+    dropdownBuilder: (context, value) {
+      return Row(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          if (showCountryFlag && dropDownItemType == DropDownItemType.country && value is Country && value.flagUri != null)
+            countryFlagWidget(value.flagUri!),
+          Text(
+            value != null ? itemLabelBuilder(value) : "Select ${dropDownItemType.name}",
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+            style: TextStyle(
+              fontSize: 16,
+              fontFamily: "Inter",
+              color: value != null ? Colors.black : Colors.black.withAlpha((0.75 * 255).round()),
+              fontWeight: value != null ? FontWeight.w500 : null,
+            ),
+          ),
+        ],
+      );
+    },
+    selectedItem: selectedItem,
+    decoratorProps: dropDownDecoratorProps,
+  );
 }
 
 InputDecoration searchFieldDecoration = const InputDecoration(
