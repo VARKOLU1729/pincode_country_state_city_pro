@@ -16,14 +16,11 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   AddressPickerController controller = AddressPickerController();
-  GridType gridType = GridType.grid4x1;
 
   @override
-  void initState()
-  {
+  void initState() {
     super.initState();
   }
-
 
   Widget toggleWidget(String text, bool isSelected) {
     return Container(
@@ -43,30 +40,13 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         backgroundColor: Colors.blue,
         title: const Text(
           "Pincode->Country->State->City",
           style: TextStyle(color: Colors.white),
         ),
-        actions: [
-          ToggleButtons(
-            isSelected: selectedGrid,
-            children: [
-              toggleWidget("4x1", selectedGrid[0]),
-              toggleWidget("2x2", selectedGrid[1]),
-            ],
-            onPressed: (int index) {
-              setState(() {
-                for (int i = 0; i < 2; i++) {
-                  selectedGrid[i] = i == index;
-                }
-                if (index == 0) gridType = GridType.grid4x1;
-                if (index == 1) gridType = GridType.grid2x2;
-              });
-            },
-          )
-        ],
       ),
       body: Stack(
         children: [
@@ -79,8 +59,7 @@ class _HomePageState extends State<HomePage> {
           ),
           PincodeCountryStateCityPicker(
             controller: controller,
-            gridType: gridType,
-            searchWidgetType: SearchWidgetType.typeAheadSearch,
+            searchWidgetType: SearchWidgetType.dropDownSearch,
           ),
         ],
       ),

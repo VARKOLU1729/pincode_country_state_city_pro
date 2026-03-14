@@ -1,6 +1,6 @@
-import 'package:pincode_country_state_city_pro/src/components/CustomTypeAheadField/suggestions_controller.dart';
-import 'package:pincode_country_state_city_pro/src/components/CustomTypeAheadField/typeahead_types.dart';
 import 'package:flutter/material.dart';
+import 'package:pincode_country_state_city_pro/src/components/custom_type_ahead_field/suggestions_controller.dart';
+import 'package:pincode_country_state_city_pro/src/components/custom_type_ahead_field/typeahead_types.dart';
 
 class SuggestionsOverlay<T> extends StatefulWidget {
   final SuggestionsItemBuilder<T> suggestionsItemBuilder;

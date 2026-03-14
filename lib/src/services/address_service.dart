@@ -1,15 +1,17 @@
 import 'dart:convert';
 
-import 'package:pincode_country_state_city_pro/pincode_country_state_city_pro.dart';
 import 'package:http/http.dart' as http;
+import 'package:pincode_country_state_city_pro/pincode_country_state_city_pro.dart';
 import 'package:pincode_country_state_city_pro/src/models/address_response.dart';
 import 'package:pincode_country_state_city_pro/src/utils/city_utils.dart';
 import 'package:pincode_country_state_city_pro/src/utils/state_utils.dart';
 
 class AddressService {
   static const String fileName = "address_service";
-  static Future<AddressResponse> getIndianAddress(
-      {required String pinCode}) async {
+
+  //Fallback service for indian postal codes -
+  //if the entered postal codes doesn't match with the existing postal codes data
+  static Future<AddressResponse> getIndianAddress({required String pinCode}) async {
     String url = 'https://api.postalpincode.in/pincode/$pinCode';
     AddressResponse addressResponse = AddressResponse(statusCode: -1);
     try {
@@ -25,10 +27,8 @@ class AddressService {
             final stateName = postOffice['State'];
             final districtName = postOffice['District'];
 
-            final StateModel? state =
-                await StateUtils.getMatchingState(stateName: stateName);
-            final City? city =
-                await CityUtils.getMatchingCity(cityName: districtName);
+            final StateModel? state = await StateUtils.getMatchingState(stateName: stateName);
+            final City? city = await CityUtils.getMatchingCity(cityName: districtName);
 
             addressResponse = AddressResponse.fromJson({
               'statusCode': 0,
@@ -39,15 +39,11 @@ class AddressService {
                 // 'country': {'name': 'India', 'isoCode': 'IN'}
               }
             });
-          } else {
-            // CommonUtils.logError(FILE_NAME, "AddressService", "Invalid response or no PostOffice data found");
           }
         }
-      } else {
-        // CommonUtils.logError(FILE_NAME, "AddressService", "Failed fetching address of $pinCode with statusCode: ${response.statusCode}");
       }
     } catch (err) {
-      // CommonUtils.logError(FILE_NAME, "AddressService", "Error Fetching address from pincode($pinCode): $err");
+      //error
     }
     return addressResponse;
   }

@@ -1,8 +1,8 @@
-import 'package:pincode_country_state_city_pro/src/components/CustomTypeAheadField/debouncer.dart';
-import 'package:pincode_country_state_city_pro/src/components/CustomTypeAheadField/default_widgets.dart';
-import 'package:pincode_country_state_city_pro/src/components/CustomTypeAheadField/suggestions_controller.dart';
-import 'package:pincode_country_state_city_pro/src/components/CustomTypeAheadField/typeahead_types.dart';
 import 'package:flutter/material.dart';
+import 'package:pincode_country_state_city_pro/src/components/custom_type_ahead_field/debouncer.dart';
+import 'package:pincode_country_state_city_pro/src/components/custom_type_ahead_field/default_widgets.dart';
+import 'package:pincode_country_state_city_pro/src/components/custom_type_ahead_field/suggestions_controller.dart';
+import 'package:pincode_country_state_city_pro/src/components/custom_type_ahead_field/typeahead_types.dart';
 
 class CustomDropDownTypeAheadSearch<T> extends StatefulWidget {
   const CustomDropDownTypeAheadSearch({
@@ -22,6 +22,7 @@ class CustomDropDownTypeAheadSearch<T> extends StatefulWidget {
     required this.onSelected,
     this.offset,
     this.shouldFollowTargetWidth = true,
+    this.minQueryLength = 0,
   })  : emptyBuilder = emptyBuilder ?? CustomTypeAheadDefaults.emptyBuilder,
         loadingBuilder = loadingBuilder ?? CustomTypeAheadDefaults.loadingBuilder,
         decorationBuilder = decorationBuilder ?? CustomTypeAheadDefaults.decorationBuilder,
@@ -76,6 +77,9 @@ class CustomDropDownTypeAheadSearch<T> extends StatefulWidget {
   /// Defaults to true.
   final bool shouldFollowTargetWidth;
 
+  ///The minimum search query length after which [suggestionsCallback] is called and suggestions will be shown
+  final int minQueryLength;
+
   @override
   State<CustomDropDownTypeAheadSearch<T>> createState() => _CustomDropDownTypeAheadSearchState<T>();
 }
@@ -103,7 +107,7 @@ class _CustomDropDownTypeAheadSearchState<T> extends State<CustomDropDownTypeAhe
     searchQueryController.addListener(() async {
       debouncer.run(
         () async {
-          if (searchQueryController.text.length >= 3) {
+          if (searchQueryController.text.length >= widget.minQueryLength) {
             if (focusNode.hasFocus) {
               overlayPortalController.show();
             }

@@ -1,67 +1,58 @@
 import 'package:flutter/material.dart';
 import 'package:pincode_country_state_city_pro/pincode_country_state_city_pro.dart';
+import 'package:pincode_country_state_city_pro/src/components/address_selection_widget.dart';
 import 'package:pincode_country_state_city_pro/src/components/messenger.dart';
-import 'package:pincode_country_state_city_pro/src/components/dropdown_search.dart';
+import 'package:pincode_country_state_city_pro/src/models/picker_props.dart';
 
 class StatePicker extends StatelessWidget {
-  final ValueChanged<StateModel?>? onChanged;
-  final ValueChanged<StateModel?>? onSaved;
-  final String Function(StateModel)? itemLabelBuilder;
-  final String? Function(StateModel?)? validator;
-  final AddressPickerController controller;
-  final SearchWidgetType searchWidgetType;
+  final PickerProps<StateModel> pickerProps;
+
   const StatePicker({
     super.key,
-    required this.controller,
-    this.onChanged,
-    this.onSaved,
-    this.validator,
-    this.itemLabelBuilder,
-    this.searchWidgetType = SearchWidgetType.dropDownSearch,
+    required this.pickerProps,
   });
 
   @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder(
-      valueListenable: controller.statesList,
+      valueListenable: pickerProps.controller.statesList,
       builder: (context, value1, _) {
         return ValueListenableBuilder(
-          valueListenable: controller.selectedState,
+          valueListenable: pickerProps.controller.selectedState,
           builder: (context, value2, _) {
-            return dropDownSearch<StateModel>(
-              key: controller.stateDropdownKey,
-              dropDownItemType: DropDownItemType.state,
-              context: context,
+            return AddressSelectionWidget<StateModel>(
+              key: pickerProps.controller.stateDropdownKey,
+              addressType: AddressType.state,
               items: value1,
-              itemLabelBuilder: itemLabelBuilder ?? (StateModel state) => state.name,
+              itemLabelBuilder: pickerProps.itemLabelBuilder,
               onChanged: (StateModel? state) async {
-                controller.selectedState.value = state;
+                pickerProps.controller.selectedState.value = state;
 
-                controller.selectedCity.value = null;
-                controller.pinCodeController.clear();
+                pickerProps.controller.selectedCity.value = null;
+                pickerProps.controller.pinCodeController.clear();
 
-                controller.cityDropdownKey.currentState?.clear();
+                pickerProps.controller.cityDropdownKey.currentState?.clear();
 
-                if (controller.selectedCountry.value?.isoCode != null && state?.isoCode != null) {
-                  controller.citiesList.value = await getCitiesOfState(
-                    countryCode: controller.selectedCountry.value!.isoCode!,
+                if (pickerProps.controller.selectedCountry.value?.isoCode != null && state?.isoCode != null) {
+                  pickerProps.controller.citiesList.value = await getCitiesOfState(
+                    countryCode: pickerProps.controller.selectedCountry.value!.isoCode!,
                     stateCode: state!.isoCode,
                   );
                 }
 
-                if (onChanged != null) onChanged!(state);
+                if (pickerProps.onChanged != null) pickerProps.onChanged!(state);
               },
-              onSaved: onSaved,
-              validator: validator,
+              onSaved: pickerProps.onSaved,
+              validator: pickerProps.validator,
               selectedItem: value2,
               onBeforePopupOpening: (_) async {
-                if (controller.selectedCountry.value == null) {
+                if (pickerProps.controller.selectedCountry.value == null) {
                   showErrorSnackBar(context: context, content: "Please choose a country");
                   return false;
                 }
                 return true;
               },
-              searchWidgetType: searchWidgetType,
+              searchWidgetType: pickerProps.searchWidgetType,
               suggestionsCallBack: (String searchQuery) {
                 return value1.where((item) => item.name.toLowerCase().startsWith(searchQuery.toLowerCase())).toList();
               },

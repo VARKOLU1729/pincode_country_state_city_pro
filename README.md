@@ -8,12 +8,13 @@ A complete Flutter package to pick and validate **Country → State → City** u
 
 ## ✨ Features
 
-- 📍 **Pincode to City/State** auto-detection
+- 📍 **Pincode to City and State** auto-detection
 - 🌐 Built-in dataset of countries, states, and cities (with lat/lng and postal info)
-- 🧩 Customizable UI layouts (4x1 column or 2x2 grid)
 - 🎯 RegEx-based validation for postal codes by country
 - 🔧 Exposed utility APIs if you want to use your own UI
 - ⚡  Fast, offline lookups with no runtime API calls
+- 🔎 DropdownSearch or TypeAheadSearch individual picker widgets for custom layouts
+- 🧱 Column layout (4×1) for the default address picker
 
 ---
 
@@ -34,7 +35,6 @@ final controller = AddressPickerController();
 
 PincodeCountryStateCityPicker(
   controller: controller,
-  gridType: GridType.grid4x1, // or GridType.grid2x2
   showCountryFlag: true //show the country flag
 )
 ```
@@ -60,13 +60,6 @@ PincodeCountryStateCityPicker(
 </table>
 
 
-
-## 🖼 Layout Options
-#### Support two pre-defined layouts:
-
-#### GridType.grid4x1 → All fields in vertical column
-
-#### GridType.grid2x2 → 2×2 compact grid
 
 ## 🛠 AddressPickerController
 
