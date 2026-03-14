@@ -1,3 +1,14 @@
+## 1.1.0
+
+### Added
+- `PickerProps` support for each individual picker
+- `TypeAheadField` support along with `DropdownSearch` for all pickers
+- `pickerBuilder` support to create custom picker layouts
+
+### Changed
+- Removed the default **2×2 grid layout**
+- Default picker layout now uses a **4×1 column layout**
+
 ## 0.1.2
 
 - Internal optimisations
