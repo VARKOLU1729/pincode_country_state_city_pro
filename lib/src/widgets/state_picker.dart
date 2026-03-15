@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:pincode_country_state_city_pro/pincode_country_state_city_pro.dart';
 import 'package:pincode_country_state_city_pro/src/components/address_selection_widget.dart';
 import 'package:pincode_country_state_city_pro/src/components/messenger.dart';
-import 'package:pincode_country_state_city_pro/src/models/picker_props.dart';
+import 'package:pincode_country_state_city_pro/src/utils/default_props.dart';
 
 class StatePicker extends StatelessWidget {
   final PickerProps<StateModel> pickerProps;
 
-  const StatePicker({
+  StatePicker({
     super.key,
-    required this.pickerProps,
-  });
+    PickerProps<StateModel>? pickerProps,
+  }) : pickerProps = pickerProps ?? DefaultProps.statePickerProps;
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +52,7 @@ class StatePicker extends StatelessWidget {
                 }
                 return true;
               },
-              searchWidgetType: pickerProps.searchWidgetType,
+              pickerType: pickerProps.pickerType,
               suggestionsCallBack: (String searchQuery) {
                 return value1.where((item) => item.name.toLowerCase().startsWith(searchQuery.toLowerCase())).toList();
               },

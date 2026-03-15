@@ -7,4 +7,6 @@ class AddressUtils {
     if (T == City) return AddressType.city;
     return AddressType.pincode;
   }
+
+  static PickerType defaultpickerType = PickerType.dropDownSearch;
 }

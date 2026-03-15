@@ -1,10 +1,20 @@
+import 'package:example/picker_type_toggle_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:pincode_country_state_city_pro/pincode_country_state_city_pro.dart';
 
 void main() {
-  runApp(const MaterialApp(
-    home: HomePage(),
-  ));
+  runApp(const ExampleApp());
+}
+
+class ExampleApp extends StatelessWidget {
+  const ExampleApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const MaterialApp(
+      home: HomePage(),
+    );
+  }
 }
 
 class HomePage extends StatefulWidget {
@@ -16,26 +26,12 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   AddressPickerController controller = AddressPickerController();
+  PickerType selectedPickerType = PickerType.dropDownSearch;
 
   @override
   void initState() {
     super.initState();
   }
-
-  Widget toggleWidget(String text, bool isSelected) {
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(5),
-        shape: BoxShape.rectangle,
-        color: isSelected ? const Color.fromARGB(255, 159, 236, 165) : Colors.white,
-      ),
-      width: 40,
-      height: 25,
-      child: Center(child: Text(text)),
-    );
-  }
-
-  List<bool> selectedGrid = <bool>[true, false];
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +40,7 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         backgroundColor: Colors.blue,
         title: const Text(
-          "Pincode->Country->State->City",
+          "Pincode ➜ Country ➜ State ➜ City",
           style: TextStyle(color: Colors.white),
         ),
       ),
@@ -57,9 +53,31 @@ class _HomePageState extends State<HomePage> {
               opacity: const AlwaysStoppedAnimation(.5),
             ),
           ),
-          PincodeCountryStateCityPicker(
-            controller: controller,
-            searchWidgetType: SearchWidgetType.dropDownSearch,
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                PickerTypeToggleWidget(
+                  pickerType: selectedPickerType,
+                  onToggle: (type) {
+                    if (type != null) {
+                      setState(() {
+                        selectedPickerType = type;
+                      });
+                    }
+                  },
+                ),
+                const SizedBox(height: 8),
+                Expanded(
+                  child: PincodeCountryStateCityPicker(
+                    key: ValueKey(selectedPickerType.name),
+                    controller: controller,
+                    pickerType: selectedPickerType,
+                  ),
+                ),
+              ],
+            ),
           ),
         ],
       ),

@@ -14,7 +14,7 @@ class AddressDropDownSearch<T> extends StatefulWidget {
     required this.validator,
     required this.selectedItem,
     required this.addressType,
-    required this.searchWidgetType,
+    required this.pickerType,
     required this.suggestionsCallBack,
     this.showCountryFlag = false,
     this.onBeforePopupOpening,
@@ -30,7 +30,7 @@ class AddressDropDownSearch<T> extends StatefulWidget {
   final AddressType addressType;
   final bool showCountryFlag;
   final Future<bool?> Function(T?)? onBeforePopupOpening;
-  final SearchWidgetType searchWidgetType;
+  final PickerType pickerType;
   final SuggestionsCallback<T> suggestionsCallBack;
   final Widget Function(BuildContext)? fieldBuilder;
 

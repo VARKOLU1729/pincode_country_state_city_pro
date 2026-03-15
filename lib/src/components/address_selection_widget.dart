@@ -13,7 +13,7 @@ class AddressSelectionWidget<T> extends StatelessWidget {
     required this.validator,
     required this.selectedItem,
     required this.addressType,
-    required this.searchWidgetType,
+    required this.pickerType,
     required this.suggestionsCallBack,
     this.showCountryFlag = false,
     this.onBeforePopupOpening,
@@ -30,12 +30,12 @@ class AddressSelectionWidget<T> extends StatelessWidget {
   final bool showCountryFlag;
   final Future<bool?> Function(T?)? onBeforePopupOpening;
   final SuggestionsCallback<T> suggestionsCallBack;
-  final SearchWidgetType searchWidgetType;
+  final PickerType pickerType;
   final Widget Function(BuildContext)? fieldBuilder;
 
   @override
   Widget build(BuildContext context) {
-    return searchWidgetType.isDropDownSearch
+    return pickerType.isDropDownSearch
         ? AddressDropDownSearch(
             items: items,
             itemLabelBuilder: itemLabelBuilder,
@@ -44,7 +44,7 @@ class AddressSelectionWidget<T> extends StatelessWidget {
             validator: validator,
             selectedItem: selectedItem,
             addressType: addressType,
-            searchWidgetType: searchWidgetType,
+            pickerType: pickerType,
             suggestionsCallBack: suggestionsCallBack,
             fieldBuilder: fieldBuilder,
           )

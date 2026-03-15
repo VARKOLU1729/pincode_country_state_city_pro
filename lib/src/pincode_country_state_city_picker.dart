@@ -1,22 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:pincode_country_state_city_pro/pincode_country_state_city_pro.dart';
 import 'package:pincode_country_state_city_pro/src/components/default_field_widget.dart';
-import 'package:pincode_country_state_city_pro/src/models/picker_props.dart';
 import 'package:pincode_country_state_city_pro/src/utils/address_utils.dart';
-import 'package:pincode_country_state_city_pro/src/utils/default_props.dart';
 
 class PincodeCountryStateCityPicker extends StatefulWidget {
-  PincodeCountryStateCityPicker({
+  const PincodeCountryStateCityPicker({
     super.key,
     required this.controller,
     this.showCountryFlag = true,
-    this.searchWidgetType = SearchWidgetType.dropDownSearch,
-    PickerProps<Country>? countryPickerProps,
-    PickerProps<StateModel>? statePickerProps,
-    PickerProps<City>? cityPickerProps,
-  })  : countryPickerProps = countryPickerProps ?? DefaultProps.countryPickerProps,
-        statePickerProps = statePickerProps ?? DefaultProps.statePickerProps,
-        cityPickerProps = cityPickerProps ?? DefaultProps.cityPickerProps;
+    this.pickerType = PickerType.dropDownSearch,
+    this.countryPickerProps,
+    this.statePickerProps,
+    this.cityPickerProps,
+  });
 
   /// controller that manages the values of the respective picker
   final AddressPickerController controller;
@@ -25,11 +21,11 @@ class PincodeCountryStateCityPicker extends StatefulWidget {
   final bool showCountryFlag;
 
   /// Whether the field is a DropDownSearch or TypeAheadSearch
-  final SearchWidgetType searchWidgetType;
+  final PickerType pickerType;
 
-  final PickerProps<Country> countryPickerProps;
-  final PickerProps<StateModel> statePickerProps;
-  final PickerProps<City> cityPickerProps;
+  final PickerProps<Country>? countryPickerProps;
+  final PickerProps<StateModel>? statePickerProps;
+  final PickerProps<City>? cityPickerProps;
 
   @override
   State<PincodeCountryStateCityPicker> createState() => _PincodeCountryStateCityPickerState();
@@ -39,6 +35,7 @@ class _PincodeCountryStateCityPickerState extends State<PincodeCountryStateCityP
   @override
   void initState() {
     super.initState();
+    AddressUtils.defaultpickerType = widget.pickerType;
     // Initialize the countries list
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       widget.controller.countriesList.value = await getAllCountries();
@@ -49,17 +46,14 @@ class _PincodeCountryStateCityPickerState extends State<PincodeCountryStateCityP
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
-        return Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15),
+        return SingleChildScrollView(
           child: Column(
             children: [
-              const SizedBox(height: 20),
               BuildAddressWidget<Country>(
                 pickerWidget: CountryPicker(
                   pickerProps: widget.countryPickerProps,
                   showCountryFlag: widget.showCountryFlag,
                 ),
-                pickerProps: widget.countryPickerProps,
               ),
               const SizedBox(height: 20),
               BuildAddressWidget(
@@ -70,16 +64,14 @@ class _PincodeCountryStateCityPickerState extends State<PincodeCountryStateCityP
               const SizedBox(height: 20),
               BuildAddressWidget<StateModel>(
                 pickerWidget: StatePicker(
-                  pickerProps: DefaultProps.statePickerProps,
+                  pickerProps: widget.statePickerProps,
                 ),
-                pickerProps: widget.statePickerProps,
               ),
               const SizedBox(height: 20),
               BuildAddressWidget<City>(
                 pickerWidget: CityPicker(
-                  pickerProps: DefaultProps.cityPickerProps,
+                  pickerProps: widget.cityPickerProps,
                 ),
-                pickerProps: widget.cityPickerProps,
               ),
             ],
           ),
@@ -90,16 +82,13 @@ class _PincodeCountryStateCityPickerState extends State<PincodeCountryStateCityP
 }
 
 class BuildAddressWidget<T> extends StatelessWidget {
-  final PickerProps<T>? pickerProps;
   final Widget pickerWidget;
 
-  const BuildAddressWidget({super.key, this.pickerProps, required this.pickerWidget});
+  const BuildAddressWidget({super.key, required this.pickerWidget});
 
   @override
   Widget build(BuildContext context) {
     AddressType addressType = AddressUtils.getAddressTypeFromType(T);
-    return pickerProps?.addressPickerWidgetBuilder != null
-        ? pickerProps!.addressPickerWidgetBuilder!(context, pickerWidget)
-        : DefaultFieldWidget(itemType: addressType, pickerWidget: pickerWidget);
+    return DefaultFieldWidget(itemType: addressType, pickerWidget: pickerWidget);
   }
 }

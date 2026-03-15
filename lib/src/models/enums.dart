@@ -1,8 +1,8 @@
-enum SearchWidgetType {
+enum PickerType {
   dropDownSearch,
   typeAheadSearch;
 
-  bool get isDropDownSearch => this == SearchWidgetType.dropDownSearch;
+  bool get isDropDownSearch => this == PickerType.dropDownSearch;
 }
 
 enum AddressType {
@@ -20,5 +20,3 @@ extension StringCasingExtension on String {
     return this[0].toUpperCase() + substring(1);
   }
 }
-
-

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pincode_country_state_city_pro/pincode_country_state_city_pro.dart';
 import 'package:pincode_country_state_city_pro/src/components/address_selection_widget.dart';
-import 'package:pincode_country_state_city_pro/src/models/picker_props.dart';
+import 'package:pincode_country_state_city_pro/src/utils/default_props.dart';
 import 'package:pincode_country_state_city_pro/src/utils/postal_code_format_utils.dart';
 import 'package:pincode_country_state_city_pro/src/utils/state_utils.dart';
 
@@ -9,11 +9,11 @@ class CountryPicker extends StatelessWidget {
   final PickerProps<Country> pickerProps;
   final bool showCountryFlag;
 
-  const CountryPicker({
+  CountryPicker({
     super.key,
-    required this.pickerProps,
+    PickerProps<Country>? pickerProps,
     this.showCountryFlag = true,
-  });
+  }) : pickerProps = pickerProps ?? DefaultProps.countryPickerProps;
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +48,7 @@ class CountryPicker extends StatelessWidget {
               onSaved: pickerProps.onSaved,
               validator: pickerProps.validator,
               selectedItem: value2,
-              searchWidgetType: pickerProps.searchWidgetType,
+              pickerType: pickerProps.pickerType,
               suggestionsCallBack: (String searchQuery) {
                 final items = value1.where((item) => item.name.toLowerCase().startsWith(searchQuery.toLowerCase())).toList();
                 return items;

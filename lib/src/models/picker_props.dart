@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pincode_country_state_city_pro/pincode_country_state_city_pro.dart';
-import 'package:pincode_country_state_city_pro/src/models/typedefs.dart';
+import 'package:pincode_country_state_city_pro/src/utils/address_utils.dart';
 
 class PickerProps<T> {
   final ValueChanged<T?>? onChanged;
@@ -8,8 +8,7 @@ class PickerProps<T> {
   final String Function(T) itemLabelBuilder;
   final String? Function(T?)? validator;
   final AddressPickerController controller;
-  final SearchWidgetType searchWidgetType;
-  final AddressPickerWidgetBuilder? addressPickerWidgetBuilder;
+  final PickerType pickerType;
 
   PickerProps({
     required this.controller,
@@ -17,7 +16,6 @@ class PickerProps<T> {
     this.onSaved,
     this.validator,
     required this.itemLabelBuilder,
-    this.searchWidgetType = SearchWidgetType.typeAheadSearch,
-    this.addressPickerWidgetBuilder,
-  });
+    PickerType? pickerType,
+  }) : pickerType = pickerType ?? AddressUtils.defaultpickerType;
 }
