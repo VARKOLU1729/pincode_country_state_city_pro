@@ -8,13 +8,13 @@ A complete Flutter package to pick and validate **Country → State → City** u
 
 ## ✨ Features
 
-- 📍 **Pincode to City and State** auto-detection
-- 🌐 Built-in dataset of countries, states, and cities (with lat/lng and postal info)
-- 🎯 RegEx-based validation for postal codes by country
-- 🔧 Exposed utility APIs if you want to use your own UI
-- ⚡  Fast, offline lookups with no runtime API calls
-- 🔎 DropdownSearch or TypeAheadSearch individual picker widgets for custom layouts
-- 🧱 Column layout (4×1) for the default address picker
+- ⚡  Fully offline address picker (no runtime API calls)
+- 📍 Auto-detect **State and City from Pincode / Postal Code**
+- 🌐 Built-in dataset of countries, states, and cities
+- 🎯 RegEx-based country-specific postal code validation
+- 🧩 Custom layouts using individual picker widgets
+- 🔎 Supports **DropdownSearch** and **TypeAheadSearch**
+- 🔧 Utility APIs if you want to build your own UI
 
 ---
 
@@ -24,10 +24,10 @@ A complete Flutter package to pick and validate **Country → State → City** u
 
 ```yaml
 dependencies:
-  pincode_country_state_city_pro: ^0.1.0
+  pincode_country_state_city_pro: ^1.0
 ```
 
-### 2. Usage
+### 2. Quick Start
 
 #### Using the default picker UI
 ```dart
@@ -35,9 +35,37 @@ final controller = AddressPickerController();
 
 PincodeCountryStateCityPicker(
   controller: controller,
-  showCountryFlag: true //show the country flag
 )
 ```
+
+#### Custom Layout
+
+You can build your own layouts using the individual pickers provided by the package.
+
+```dart
+//All pickers automatically stay in sync using the same controller.
+final controller = AddressPickerController();
+
+Column(
+  children: [
+    Row(
+      children: [
+        CountryPicker(
+          pickerProps: PickerProps(controller: controller),
+        ),
+        PincodeField(controller: controller),
+      ],
+    ),
+    Row(
+      children: [
+        StatePicker(),
+        CityPicker(),
+      ],
+    ),
+  ],
+)
+```
+
 <table>
   <tr>
     <td>

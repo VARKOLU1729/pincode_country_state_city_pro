@@ -1,9 +1,10 @@
 ## 1.1.0
 
 ### Added
-- `PickerProps` support for each individual picker
-- `TypeAheadField` support along with `DropdownSearch` for all pickers
-- `pickerBuilder` support to create custom picker layouts
+- `PickerProps` support for configuring individual pickers (`CountryPicker`, `StatePicker`, `CityPicker`)
+- `CustomTypeAheadField` support for all pickers
+    - Optimised for large datasets
+    - Implemented as part of this package and exposed for external usage
 
 ### Changed
 - Removed the default **2×2 grid layout**

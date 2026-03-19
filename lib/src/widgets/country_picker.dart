@@ -26,7 +26,7 @@ class CountryPicker extends StatelessWidget {
             return AddressSelectionWidget<Country>(
               key: pickerProps.controller.countryDropdownKey,
               addressType: AddressType.country,
-              items: value1,
+              items: value1 ?? [],
               itemLabelBuilder: pickerProps.itemLabelBuilder,
               showCountryFlag: showCountryFlag,
               onChanged: (Country? country) async {
@@ -50,9 +50,11 @@ class CountryPicker extends StatelessWidget {
               selectedItem: value2,
               pickerType: pickerProps.pickerType,
               suggestionsCallBack: (String searchQuery) {
-                final items = value1.where((item) => item.name.toLowerCase().startsWith(searchQuery.toLowerCase())).toList();
+                final items = value1?.where((item) => item.name.toLowerCase().startsWith(searchQuery.toLowerCase())).toList();
                 return items;
               },
+              validationBuilder: pickerProps.validationBuilder,
+              showValidationError: pickerProps.showValidationError,
             );
           },
         );

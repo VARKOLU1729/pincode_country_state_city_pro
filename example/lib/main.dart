@@ -64,14 +64,16 @@ class _HomePageState extends State<HomePage> {
                     if (type != null) {
                       setState(() {
                         selectedPickerType = type;
+                        controller = AddressPickerController();
                       });
                     }
                   },
                 ),
                 const SizedBox(height: 8),
+                //Default picker
                 Expanded(
                   child: PincodeCountryStateCityPicker(
-                    key: ValueKey(selectedPickerType.name),
+                    key: ValueKey<String>(selectedPickerType.name),
                     controller: controller,
                     pickerType: selectedPickerType,
                   ),

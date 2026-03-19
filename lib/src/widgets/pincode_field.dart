@@ -11,6 +11,7 @@ import 'package:pincode_country_state_city_pro/src/utils/validator_utils.dart';
 
 class PincodeField extends StatefulWidget {
   final AddressPickerController controller;
+
   const PincodeField({super.key, required this.controller});
 
   @override
@@ -32,15 +33,15 @@ class _PincodeFieldState extends State<PincodeField> {
     }
   }
 
-  Future<void> updateCSCFromIndianApi(AddressResponse addressResponse) async {
-    widget.controller.selectedState.value = addressResponse.data?.state;
-    widget.controller.selectedCity.value = addressResponse.data?.city;
-    widget.controller.statesList.value = await StateUtils.getStatesOfCountry(
-        widget.controller.selectedCountry.value!.isoCode!);
+  Future<void> updateCSC({StateModel? state, required City city}) async {
+    widget.controller.selectedCity.value = city;
+
+    widget.controller.selectedState.value =
+        state ?? await StateUtils.getStateByCode(widget.controller.selectedCountry.value!.isoCode!, city.stateCode);
+    widget.controller.statesList.value = await StateUtils.getStatesOfCountry(widget.controller.selectedCountry.value!.isoCode!);
     if (widget.controller.selectedState.value?.isoCode != null) {
-      widget.controller.citiesList.value = await CityUtils.getStateCities(
-          widget.controller.selectedCountry.value!.isoCode!,
-          widget.controller.selectedState.value!.isoCode);
+      widget.controller.citiesList.value =
+          await CityUtils.getStateCities(widget.controller.selectedCountry.value!.isoCode!, widget.controller.selectedState.value!.isoCode);
     }
   }
 
@@ -92,10 +93,11 @@ class _PincodeFieldState extends State<PincodeField> {
         }
       },
       style: const TextStyle(
-          fontSize: 14,
-          fontWeight: FontWeight.w500,
-          color: Colors.black,
-          fontFamily: "Inter"),
+        fontSize: 14,
+        fontWeight: FontWeight.w500,
+        color: Colors.black,
+        fontFamily: "Inter",
+      ),
       decoration: defaultInputDecoration,
       controller: widget.controller.pinCodeController,
       validator: (value) {
@@ -121,24 +123,17 @@ class _PincodeFieldState extends State<PincodeField> {
           return;
         }
         if (val.isNotEmpty) {
-          City? city = await CityUtils.getCityByPostalCode(
-              postalCode: val,
-              countryCode: widget.controller.selectedCountry.value!.isoCode!);
+          City? city = await CityUtils.getCityByPostalCode(postalCode: val, countryCode: widget.controller.selectedCountry.value!.isoCode!);
           if (city != null) {
             // updateCSCFromCity
-            widget.controller.selectedCity.value = city;
-            widget.controller.selectedState.value =
-                await StateUtils.getStateByCode(
-                    widget.controller.selectedCountry.value!.isoCode!,
-                    city.stateCode);
+            updateCSC(city: city);
           }
           // If the generated pin code is 6 digits but doesn't match any known city (possibly due to geocoding inaccuracies),
           // then attempt to fetch the address using the Indian Postal API (free) as a fallback.
           else if (val.length == 6) {
-            AddressResponse addressResponse =
-                await AddressService.getIndianAddress(pinCode: val.toString());
-            if (addressResponse.statusCode == 0) {
-              await updateCSCFromIndianApi(addressResponse);
+            AddressResponse addressResponse = await AddressService.getIndianAddress(pinCode: val.toString());
+            if (addressResponse.statusCode == 0 && addressResponse.data?.city != null) {
+              await updateCSC(state: addressResponse.data!.state, city: addressResponse.data!.city!);
             } else {
               handleNoCityFound();
             }
@@ -153,12 +148,10 @@ class _PincodeFieldState extends State<PincodeField> {
           });
         });
       },
-      keyboardType: PostalCodeFormatsUtils.getKeyboardTypeForPincodePattern(
-          widget.controller.postalCodeFormat?.format),
+      keyboardType: PostalCodeFormatsUtils.getKeyboardTypeForPincodePattern(widget.controller.postalCodeFormat?.format),
       inputFormatters: [
         FilteringTextInputFormatter.allow(RegExp(r'^[A-Za-z0-9-\s]+$')),
-        LengthLimitingTextInputFormatter(
-            widget.controller.postalCodeFormat?.format?.length ?? 20),
+        LengthLimitingTextInputFormatter(widget.controller.postalCodeFormat?.format?.length ?? 20),
       ],
     );
   }

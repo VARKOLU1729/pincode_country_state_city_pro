@@ -35,7 +35,7 @@ class _PincodeCountryStateCityPickerState extends State<PincodeCountryStateCityP
   @override
   void initState() {
     super.initState();
-    AddressUtils.defaultpickerType = widget.pickerType;
+    AddressUtils.defaultPickerType = widget.pickerType;
     // Initialize the countries list
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       widget.controller.countriesList.value = await getAllCountries();

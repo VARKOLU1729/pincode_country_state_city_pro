@@ -23,11 +23,10 @@ class CityPicker extends StatelessWidget {
             return AddressSelectionWidget<City>(
               key: pickerProps.controller.cityDropdownKey,
               addressType: AddressType.city,
-              items: value1,
+              items: value1 ?? [],
               itemLabelBuilder: pickerProps.itemLabelBuilder,
               onChanged: (City? city) {
                 pickerProps.controller.selectedCity.value = city;
-
                 pickerProps.controller.pinCodeController.clear();
                 if (pickerProps.onChanged != null) pickerProps.onChanged!(city);
               },
@@ -43,8 +42,10 @@ class CityPicker extends StatelessWidget {
               },
               pickerType: pickerProps.pickerType,
               suggestionsCallBack: (String searchQuery) {
-                return value1.where((item) => item.name.toLowerCase().startsWith(searchQuery.toLowerCase())).toList();
+                return value1?.where((item) => item.name.toLowerCase().startsWith(searchQuery.toLowerCase())).toList();
               },
+              validationBuilder: pickerProps.validationBuilder,
+              showValidationError: pickerProps.showValidationError,
             );
           },
         );

@@ -23,7 +23,7 @@ class StatePicker extends StatelessWidget {
             return AddressSelectionWidget<StateModel>(
               key: pickerProps.controller.stateDropdownKey,
               addressType: AddressType.state,
-              items: value1,
+              items: value1 ?? [],
               itemLabelBuilder: pickerProps.itemLabelBuilder,
               onChanged: (StateModel? state) async {
                 pickerProps.controller.selectedState.value = state;
@@ -54,8 +54,10 @@ class StatePicker extends StatelessWidget {
               },
               pickerType: pickerProps.pickerType,
               suggestionsCallBack: (String searchQuery) {
-                return value1.where((item) => item.name.toLowerCase().startsWith(searchQuery.toLowerCase())).toList();
+                return value1?.where((item) => item.name.toLowerCase().startsWith(searchQuery.toLowerCase())).toList();
               },
+              validationBuilder: pickerProps.validationBuilder,
+              showValidationError: pickerProps.showValidationError,
             );
           },
         );

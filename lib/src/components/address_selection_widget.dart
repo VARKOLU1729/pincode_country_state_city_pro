@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pincode_country_state_city_pro/pincode_country_state_city_pro.dart';
 import 'package:pincode_country_state_city_pro/src/components/address_drop_down_search.dart';
 import 'package:pincode_country_state_city_pro/src/components/address_type_ahead_search.dart';
+import 'package:pincode_country_state_city_pro/src/models/typedefs.dart';
 
 class AddressSelectionWidget<T> extends StatelessWidget {
   const AddressSelectionWidget({
@@ -15,6 +16,8 @@ class AddressSelectionWidget<T> extends StatelessWidget {
     required this.addressType,
     required this.pickerType,
     required this.suggestionsCallBack,
+    required this.validationBuilder,
+    this.showValidationError = true,
     this.showCountryFlag = false,
     this.onBeforePopupOpening,
     this.fieldBuilder,
@@ -32,6 +35,8 @@ class AddressSelectionWidget<T> extends StatelessWidget {
   final SuggestionsCallback<T> suggestionsCallBack;
   final PickerType pickerType;
   final Widget Function(BuildContext)? fieldBuilder;
+  final bool showValidationError;
+  final ValidationBuilder validationBuilder;
 
   @override
   Widget build(BuildContext context) {
@@ -44,9 +49,10 @@ class AddressSelectionWidget<T> extends StatelessWidget {
             validator: validator,
             selectedItem: selectedItem,
             addressType: addressType,
-            pickerType: pickerType,
             suggestionsCallBack: suggestionsCallBack,
             fieldBuilder: fieldBuilder,
+            validationBuilder: validationBuilder,
+            showValidationError: showValidationError,
           )
         : AddressTypeAheadSearch(
             itemLabelBuilder: itemLabelBuilder,
@@ -58,6 +64,8 @@ class AddressSelectionWidget<T> extends StatelessWidget {
             suggestionsCallBack: suggestionsCallBack,
             items: items,
             fieldBuilder: fieldBuilder,
+            showValidationError: showValidationError,
+            validationBuilder: validationBuilder,
           );
   }
 }
