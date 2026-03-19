@@ -45,7 +45,7 @@ A complete Flutter package to pick and validate **Country → State → City** u
 
 ```yaml
 dependencies:
-  pincode_country_state_city_pro: ^1.0
+  pincode_country_state_city_pro: ^1.0.0
 ```
 
 ### 2. Quick Start
