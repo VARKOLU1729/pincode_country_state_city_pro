@@ -18,6 +18,27 @@ A complete Flutter package to pick and validate **Country → State → City** u
 
 ---
 
+<table>
+  <tr>
+    <td>
+      <img
+        src="https://raw.githubusercontent.com/VARKOLU1729/pincode_country_state_city_pro/main/screenshots/address_picker.png" 
+        width="300"
+        height="600"
+        alt="Pincode Address Picker Image"
+      />
+    </td>
+    <td>
+      <img 
+        src="https://raw.githubusercontent.com/VARKOLU1729/pincode_country_state_city_pro/main/demos/address_picker_demo.gif" 
+        width="300"
+        height="600"
+        alt="Pincode Address Picker Demo"
+      />
+    </td>
+  </tr>
+</table>
+
 ## 🚀 Getting Started
 
 ### 1. Add to `pubspec.yaml`
@@ -65,29 +86,6 @@ Column(
   ],
 )
 ```
-
-<table>
-  <tr>
-    <td>
-      <img 
-        src="screenshots/cscp_1.png" 
-        width="300"
-        height="600"
-        alt="Pincode Address Picker Image"
-      />
-    </td>
-    <td>
-      <img 
-        src="https://github.com/VARKOLU1729/pincode_country_state_city_pro/blob/v0.1.2/demos/dropdowns_demo.gif" 
-        width="300"
-        height="600"
-        alt="Pincode Address Picker Demo"
-      />
-    </td>
-  </tr>
-</table>
-
-
 
 ## 🛠 AddressPickerController
 

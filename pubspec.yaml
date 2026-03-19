@@ -64,8 +64,8 @@ flutter:
   # https://flutter.dev/custom-fonts/#from-packages
 
 topics:
-  - flutter
-  - address
+  - address-picker
+  - country-state-city
   - pincode
   - postal-code
   - autofill
